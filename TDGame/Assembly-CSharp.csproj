@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Code\Scripts\Spawner.cs" />
     <Compile Include="Assets\Code\Scripts\Movement.cs" />
+    <Compile Include="Assets\Turrent.cs" />
     <Compile Include="Assets\Code\Scripts\Level1.cs" />
   </ItemGroup>
   <ItemGroup>

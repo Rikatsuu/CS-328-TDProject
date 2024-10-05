@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1109114513164563255}
   - component: {fileID: 1749667981866892643}
   - component: {fileID: 2993936106124849998}
+  - component: {fileID: -8446667744952858602}
   m_Layer: 6
   m_Name: Enemy1
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.9528302, g: 0.16629584, b: 0.83361983, a: 1}
+  m_Color: {r: 1, g: 0.97088087, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,9 +96,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875603748036350326}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -112,7 +113,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &1749667981866892643
 CircleCollider2D:
@@ -162,4 +163,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1109114513164563255}
-  movementSpeed: 2
+  movementSpeed: 5
+--- !u!114 &-8446667744952858602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875603748036350326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b275c14119fbde46b8f26c80ecb6050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 2

@@ -26,10 +26,11 @@ Transform:
   m_GameObject: {fileID: 850669642098001695}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.8, y: 0.33, z: 0}
   m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7731553606940906076}
   m_Father: {fileID: 4386436824919302137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2876416696137442147
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -376681273
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cf5dc689edbf7544eaac9cbf6d8082a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -133,5 +134,39 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  bulletPrefab: {fileID: 4083300861416757856, guid: d81f2d20cb49a6f47876bf0b1a1bc403, type: 3}
+  firingPoint: {fileID: 7731553606940906076}
   targetRange: 2
   rotationSpeed: 200
+  bulletsPerSecond: 25
+--- !u!1 &8848566468402916833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7731553606940906076}
+  m_Layer: 0
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7731553606940906076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8848566468402916833}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.32686323, w: 0.94507164}
+  m_LocalPosition: {x: -3.9, y: 5.800001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5632632452425171965}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 38.157}

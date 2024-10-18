@@ -61,13 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\Scripts\Spawner.cs" />
-    <Compile Include="Assets\Code\Scripts\Turrent.cs" />
+    <Compile Include="Assets\Code\Scripts\TowerButton.cs" />
+    <Compile Include="Assets\Code\Scripts\DragAndDrop.cs" />
     <Compile Include="Assets\Code\Scripts\Bullet.cs" />
     <Compile Include="Assets\Code\Scripts\BuildManager.cs" />
     <Compile Include="Assets\Code\Scripts\Movement.cs" />
+    <Compile Include="Assets\Code\Scripts\Turret.cs" />
     <Compile Include="Assets\Code\Scripts\Health.cs" />
     <Compile Include="Assets\Code\Scripts\Plot.cs" />
     <Compile Include="Assets\Code\Scripts\Level1.cs" />
+    <Compile Include="Assets\Code\Scripts\Tower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

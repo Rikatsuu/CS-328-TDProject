@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|c:\\users\\adaml\\downloads\\cs-328-tdproject\\tdgame\\assets\\code\\scripts\\level1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|c:\\users\\adaml\\downloads\\cs-328-tdproject\\tdgame\\assets\\code\\scripts\\draganddrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\draganddrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\turret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\turret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\level1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\level1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\towerbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\towerbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\plot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\plot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\buildmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,14 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\plot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\plot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\turrent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\turrent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +54,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "Turret.cs",
+              "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Turret.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Turret.cs",
+              "ToolTip": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Turret.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\Turret.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T05:38:50.373Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Bullet.cs",
               "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Bullet.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Bullet.cs",
@@ -54,12 +78,48 @@
               "RelativeToolTip": "Assets\\Code\\Scripts\\Bullet.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T08:35:46.338Z",
-              "IsPinned": true
+              "WhenOpened": "2024-10-04T08:35:46.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TowerButton.cs",
+              "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\TowerButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\TowerButton.cs",
+              "ToolTip": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\TowerButton.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\TowerButton.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:00:13.863Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DragAndDrop.cs",
+              "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\DragAndDrop.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\DragAndDrop.cs",
+              "ToolTip": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\DragAndDrop.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\DragAndDrop.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T05:44:30.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tower.cs",
+              "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Tower.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Tower.cs",
+              "ToolTip": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Tower.cs",
+              "RelativeToolTip": "Assets\\Code\\Scripts\\Tower.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T05:16:18.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Level1.cs",
               "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Level1.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Level1.cs",
@@ -67,36 +127,35 @@
               "RelativeToolTip": "Assets\\Code\\Scripts\\Level1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T08:06:18.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T08:06:18.693Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Plot.cs",
               "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Plot.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Plot.cs",
               "ToolTip": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Plot.cs",
               "RelativeToolTip": "Assets\\Code\\Scripts\\Plot.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBQAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-05T07:41:11.584Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "BuildManager.cs",
               "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\BuildManager.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\BuildManager.cs",
               "ToolTip": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\BuildManager.cs",
               "RelativeToolTip": "Assets\\Code\\Scripts\\BuildManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-05T07:32:54.478Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Health.cs",
               "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Health.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Health.cs",
@@ -108,19 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Turrent.cs",
-              "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Turrent.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Turrent.cs",
-              "ToolTip": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Turrent.cs",
-              "RelativeToolTip": "Assets\\Code\\Scripts\\Turrent.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA5wAoAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T08:22:38.402Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Movement.cs",
               "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Movement.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Movement.cs",
@@ -132,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Spawner.cs",
               "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Spawner.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Spawner.cs",

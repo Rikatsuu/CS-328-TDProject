@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5632632452425171965}
   - component: {fileID: 2876416696137442147}
+  - component: {fileID: 6974445121849232379}
   m_Layer: 0
-  m_Name: MachineGunMango
+  m_Name: MachineGunMangoSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 850669642098001695}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: 0.33, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.11, y: 0.11, z: 0.11}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7731553606940906076}
@@ -85,6 +86,92 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &6974445121849232379
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850669642098001695}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 12.5, y: 12.5}
+    newSize: {x: 12.5, y: 12.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 4.44, y: -0.55}
+      - {x: 3.26, y: -0.19999999}
+      - {x: 2.25, y: 0.77}
+      - {x: 1.8399999, y: 1.9799999}
+      - {x: 0.84, y: 2.98}
+      - {x: -0.25, y: 3.77}
+      - {x: -0.71, y: 4.7599998}
+      - {x: -1.6999999, y: 5.79}
+      - {x: -2.22, y: 6.25}
+      - {x: -4.27, y: 6.25}
+      - {x: -4.2999997, y: 4.23}
+      - {x: -3.26, y: 3.6999998}
+      - {x: -2.27, y: 3.73}
+      - {x: -2.27, y: 2.75}
+      - {x: -2.25, y: 2.73}
+      - {x: -2.27, y: 1.75}
+      - {x: -2.27, y: 0.75}
+      - {x: -2.25, y: 0.72999996}
+      - {x: -1.77, y: -0.72999996}
+      - {x: -3.25, y: -0.72999996}
+      - {x: -3.27, y: -0.75}
+      - {x: -3.78, y: -1.17}
+      - {x: -4.77, y: -2.1599998}
+      - {x: -4.77, y: -2.8}
+      - {x: -4.27, y: -3.75}
+      - {x: -4.25, y: -3.77}
+      - {x: -3.8, y: -4.27}
+      - {x: -2.26, y: -4.81}
+      - {x: 1.22, y: -5.2799997}
+      - {x: 1.73, y: -5.7999997}
+      - {x: 3.1799998, y: -6.25}
+      - {x: 4.11, y: -6.25}
+      - {x: 4.64, y: -4.5899997}
+      - {x: 5.27, y: -3.31}
+      - {x: 5.27, y: -1.4499999}
+    - - {x: -0.71999997, y: 0.75}
+      - {x: -0.75, y: 0.78}
+      - {x: -1.22, y: 1.7199999}
+      - {x: -0.26, y: 0.21}
+      - {x: 1.22, y: -0.22}
+      - {x: -0.71999997, y: -0.22}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6088911771722331495
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +183,7 @@ GameObject:
   - component: {fileID: 4386436824919302137}
   - component: {fileID: 2203326466120964103}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: MachineGunMango
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +198,7 @@ Transform:
   m_GameObject: {fileID: 6088911771722331495}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.85, y: 1.07, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -137,7 +224,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4083300861416757856, guid: d81f2d20cb49a6f47876bf0b1a1bc403, type: 3}
   firingPoint: {fileID: 7731553606940906076}
   targetRange: 2
-  rotationSpeed: 200
+  rotationSpeed: 3000
   bulletsPerSecond: 25
 --- !u!1 &8848566468402916833
 GameObject:

@@ -36,12 +36,20 @@ public class DragAndDrop : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
+        towerScript.isPlaced = true;
 
         Vector3 mousePosition = GetMouseWorldPosition();
         if (IsValidPlacement(mousePosition))
         {
             Vector3 snappedPosition = SnapToBlock(mousePosition);
-            Instantiate(towerPrefab, snappedPosition, Quaternion.identity);
+            GameObject placedTower = Instantiate(towerPrefab, snappedPosition, Quaternion.identity);
+
+            // Get the Tower script from the instantiated object and activate it
+            Tower tower = placedTower.GetComponent<Tower>();
+            if (tower != null)
+            {
+                tower.ActivateTower();
+            }
 
             // Destroy the dragged sprite since the tower is now placed
             Destroy(gameObject);
@@ -51,6 +59,8 @@ public class DragAndDrop : MonoBehaviour
             Destroy(gameObject);  // or reset to initial position, if required
         }
     }
+
+
 
     void Update()
     {
@@ -82,13 +92,15 @@ public class DragAndDrop : MonoBehaviour
 
     private Vector3 SnapToBlock(Vector3 position)
     {
-        // Implement logic to snap to the block center
-        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero);
-        if (hit.collider != null && hit.collider.CompareTag("Plot"))
-        {
-            return hit.collider.transform.position;  // Snap to the block's position
-        }
+        // Define the size of your grid (adjust this to your grid size)
+        float gridSize = 1f;  // Example: 1 unit per grid cell
 
-        return position;  // If no valid block is found, just return the original position
+        // Calculate the snapped position by rounding to the nearest grid size
+        float snappedX = Mathf.Round(position.x / gridSize) * gridSize;
+        float snappedY = Mathf.Round(position.y / gridSize) * gridSize;
+
+        // Return the snapped position (center of the grid)
+        return new Vector3(snappedX, snappedY, position.z);  // Z remains the same
     }
+
 }

@@ -36,9 +36,16 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (tower == null)
+        if (tower != null) return;
+        Tower towerToBuild = BuildManager.main.GetSelectedTower();
+
+        if (towerToBuild.cost > Level1.main.currency)
         {
+            Debug.Log("brokie");
             return;
         }
+
+        Level1.main.spendCurrency(towerToBuild.cost);
+
     }
 }

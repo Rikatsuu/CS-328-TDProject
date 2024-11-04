@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class Turrent : MonoBehaviour
+public class Turret : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform towerRotationPoint;
@@ -16,36 +16,44 @@ public class Turrent : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float bulletsPerSecond = 2f;
 
+    [Header("Tower Attributes")]
+    public int towerCost = 175;
+
     private Transform target;
     private float timeUnitlFire;
+    public bool isPlaced = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isPlaced = false;
     }
 
     private void Update(){
-        if(target == null){
-            findTarget();
-            return;
-        }
-
-        RotateTowardsTarget();
-
-        if (!CheckTargetIsInRange())
+        if (isPlaced)
         {
-            target = null;
-        }
-        else
-        {
-            timeUnitlFire += Time.deltaTime;
-            if (timeUnitlFire >= 2f / bulletsPerSecond)
+            if(target == null){
+                findTarget();
+                return;
+            }
+
+            RotateTowardsTarget();
+
+            if (!CheckTargetIsInRange())
             {
-                bulletFire();
-                timeUnitlFire = 0f;
+                target = null;
+            }
+            else
+            {
+                timeUnitlFire += Time.deltaTime;
+                if (timeUnitlFire >= 2f / bulletsPerSecond)
+                {
+                    bulletFire();
+                    timeUnitlFire = 0f;
+                }
             }
         }
+        
     }
 
     private void OnDrawGizmosSelected(){
@@ -81,6 +89,7 @@ public class Turrent : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         Bullet bulletScript =  bullet.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
+
 
     }
 }

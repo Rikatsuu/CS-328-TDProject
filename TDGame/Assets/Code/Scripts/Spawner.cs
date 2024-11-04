@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
-    private int enemiesAlive;
+    protected int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
 

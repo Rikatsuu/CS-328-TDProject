@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|c:\\users\\adaml\\downloads\\cs-328-tdproject\\tdgame\\assets\\code\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\endpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\endpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|c:\\users\\adaml\\downloads\\cs-328-tdproject\\tdgame\\assets\\code\\scripts\\endpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\endpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|c:\\users\\adaml\\downloads\\cs-328-tdproject\\tdgame\\assets\\code\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9DB2F9AD-739F-3A3E-4BD4-05FBC7CCCA3A}|Assembly-CSharp.csproj|C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\assets\\code\\scripts\\buildmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,17 +58,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Endpoint.cs",
               "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Endpoint.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Endpoint.cs",
               "ToolTip": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Endpoint.cs",
               "RelativeToolTip": "Assets\\Code\\Scripts\\Endpoint.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T08:26:50.151Z",
               "EditorCaption": ""
@@ -95,8 +95,7 @@
               "RelativeToolTip": "Assets\\Code\\Scripts\\Turret.cs",
               "ViewState": "AgIAAEEAAAAAAAAAAAAwwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T05:38:50.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-14T05:38:50.373Z"
             },
             {
               "$type": "Document",
@@ -120,8 +119,7 @@
               "RelativeToolTip": "Assets\\Code\\Scripts\\TowerButton.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAwwEYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T08:00:13.863Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T08:00:13.863Z"
             },
             {
               "$type": "Document",
@@ -133,8 +131,7 @@
               "RelativeToolTip": "Assets\\Code\\Scripts\\Tower.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T05:16:18.329Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-14T05:16:18.329Z"
             },
             {
               "$type": "Document",
@@ -146,8 +143,7 @@
               "RelativeToolTip": "Assets\\Code\\Scripts\\Level1.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAIwFMAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T08:06:18.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T08:06:18.693Z"
             },
             {
               "$type": "Document",
@@ -171,8 +167,7 @@
               "RelativeToolTip": "Assets\\Code\\Scripts\\BuildManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T07:32:54.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T07:32:54.478Z"
             },
             {
               "$type": "Document",
@@ -184,8 +179,7 @@
               "RelativeToolTip": "Assets\\Code\\Scripts\\Health.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T09:07:03.871Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T09:07:03.871Z"
             },
             {
               "$type": "Document",
@@ -201,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Spawner.cs",
               "DocumentMoniker": "C:\\Users\\adaml\\Downloads\\CS-328-TDProject\\TDGame\\Assets\\Code\\Scripts\\Spawner.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Scripts\\Spawner.cs",

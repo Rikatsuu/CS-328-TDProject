@@ -71,6 +71,7 @@
     <Compile Include="Assets\Code\Scripts\Health.cs" />
     <Compile Include="Assets\Code\Scripts\Plot.cs" />
     <Compile Include="Assets\Code\Scripts\Level1.cs" />
+    <Compile Include="Assets\Code\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Code\Scripts\Tower.cs" />
   </ItemGroup>
   <ItemGroup>

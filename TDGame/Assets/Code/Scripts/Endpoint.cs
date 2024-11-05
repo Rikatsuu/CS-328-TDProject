@@ -2,17 +2,19 @@ using UnityEngine;
 
 public class Endpoint : MonoBehaviour
 {
-    public int damageAmount = 1;  // Amount of health to deduct when an enemy reaches the endpoint
+    public int damageAmount = 1; 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the colliding object is an enemy
         if (other.CompareTag("Enemy"))
         {
             // Deduct health from the player
             Level1.main.DeductHealth(damageAmount);
 
-            // Optionally destroy the enemy or handle it as needed
+            // Notify the Spawner that an enemy has reached the endpoint
+            Spawner.onEnemyDestroy.Invoke();
+
+            // Destroy the enemy to remove it from the scene
             Destroy(other.gameObject);
         }
     }

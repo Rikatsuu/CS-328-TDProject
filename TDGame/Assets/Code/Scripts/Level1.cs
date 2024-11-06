@@ -22,6 +22,7 @@ public class Level1 : MonoBehaviour
     public TextMeshProUGUI currencyText;
     public TextMeshProUGUI healthText;
 
+    private bool gameStarted = false;
     private void Start()
     {
         UpdateCurrencyText();
@@ -91,6 +92,17 @@ public class Level1 : MonoBehaviour
             Debug.Log("Game Over!");
             // Implement game-over logic here (e.g., load game-over screen)
         }
+    }
+
+    public void StartGame()
+    {
+        gameStarted = true;
+        Spawner.main.StartWaves();
+    }
+
+    public bool IsGameStarted()
+    {
+        return gameStarted;
     }
 }
 

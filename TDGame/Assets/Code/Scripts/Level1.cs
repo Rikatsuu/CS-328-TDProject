@@ -68,7 +68,7 @@ public class Level1 : MonoBehaviour
     {
         if (currencyText != null)
         {
-            currencyText.text = "Currency: " + currency.ToString();
+            currencyText.text = "<sprite name=guap>" + currency.ToString();
         }
     }
 
@@ -76,9 +76,11 @@ public class Level1 : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = "Health: " + health.ToString();
+            healthText.text = "<sprite name=HealthNew>" + health.ToString();
+
         }
     }
+
     public void DeductHealth(int amount)
     {
         health -= amount;

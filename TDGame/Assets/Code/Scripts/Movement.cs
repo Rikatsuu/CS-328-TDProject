@@ -23,17 +23,14 @@ public class Movement : MonoBehaviour
         {
             pathIndex++;
 
-            if (pathIndex == Level1.main.path.Length)
+            if (pathIndex >= Level1.main.path.Length)
             {
                 Spawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
                 return;
+            }
 
-            }
-            else
-            {
-                target = Level1.main.path[pathIndex];
-            }
+            target = Level1.main.path[pathIndex];
         }
     }
     private void FixedUpdate ()

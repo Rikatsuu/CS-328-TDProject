@@ -1,10 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
+    public static Spawner main;  // Singleton instance
+
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
     [Header("Attributes")]
@@ -14,27 +15,34 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float difficultyScaling = 0.75f;
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
-    
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
-    protected int enemiesAlive;
+    private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    private bool isWaveActive = false;  // New flag to track if a wave is currently active
 
-
-    // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
-        StartCoroutine(StartWave());
+        main = this;
+        onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
-    // Update is called once per frame
+    public void StartWaves()
+    {
+        // Only start the waves if no wave is currently active
+        if (!isWaveActive)
+        {
+            StartCoroutine(StartWave());
+        }
+    }
 
     private IEnumerator StartWave()
     {
         yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
+        isWaveActive = true;  // Set wave as active
         enemiesLeftToSpawn = EnemiesPerWave();
     }
 
@@ -43,42 +51,37 @@ public class Spawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        StartCoroutine(StartWave());
+        isWaveActive = false;  // Mark wave as inactive so the next wave can be triggered
     }
-    void Update()
+
+    private void Update()
     {
         if (!isSpawning) return;
 
         timeSinceLastSpawn += Time.deltaTime;
-        if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && (enemiesLeftToSpawn > 0)) //still spawning enemies
+        if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && (enemiesLeftToSpawn > 0))
         {
             spawnEnemy();
-
-            //makes sure this doesnt spawn infinite enemies
             enemiesLeftToSpawn--;
             enemiesAlive++;
-
             timeSinceLastSpawn = 0f;
         }
+
         if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
         {
-            //ends wave
             EndWave();
         }
     }
+
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScaling));
     }
+
     private void spawnEnemy()
     {
         GameObject prefabToSpawn = enemyPrefabs[0];
         Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity);
-    }
-
-    private void Awake()
-    {
-        onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
     private void EnemyDestroyed()

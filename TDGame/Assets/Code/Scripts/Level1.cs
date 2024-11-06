@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Level1 : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class Level1 : MonoBehaviour
     public TextMeshProUGUI currencyText;
     public TextMeshProUGUI healthText;
 
+    [Header("UI References")]
+    public GameObject lossScreen;
+
+    private bool gameStarted = false;
     private void Start()
     {
         UpdateCurrencyText();
@@ -89,8 +94,41 @@ public class Level1 : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Game Over!");
-            // Implement game-over logic here (e.g., load game-over screen)
+            GameOver();
         }
+    }
+
+    public void StartGame()
+    {
+        gameStarted = true;
+        Spawner.main.StartWaves();
+    }
+
+    public bool IsGameStarted()
+    {
+        return gameStarted;
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("Game Over!");
+        if (lossScreen != null)
+        {
+            lossScreen.SetActive(true);  // Show the Loss Screen UI
+        }
+        Time.timeScale = 0;  // Pause the game
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Main Menu");
     }
 }
 

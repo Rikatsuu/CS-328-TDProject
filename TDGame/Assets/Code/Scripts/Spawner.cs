@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class Spawner : MonoBehaviour
 {
@@ -8,11 +9,14 @@ public class Spawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private TextMeshProUGUI waveCounterText;  // Reference to the wave counter text
+
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
     [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float difficultyScaling = 0.75f;
+
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
@@ -21,7 +25,7 @@ public class Spawner : MonoBehaviour
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
-    private bool isWaveActive = false;  // New flag to track if a wave is currently active
+    private bool isWaveActive = false;
 
     private void Awake()
     {
@@ -31,7 +35,6 @@ public class Spawner : MonoBehaviour
 
     public void StartWaves()
     {
-        // Only start the waves if no wave is currently active
         if (!isWaveActive)
         {
             StartCoroutine(StartWave());
@@ -42,8 +45,9 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
-        isWaveActive = true;  // Set wave as active
+        isWaveActive = true;
         enemiesLeftToSpawn = EnemiesPerWave();
+        UpdateWaveCounter();  // Update wave counter at the start of each wave
     }
 
     private void EndWave()
@@ -51,7 +55,8 @@ public class Spawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        isWaveActive = false;  // Mark wave as inactive so the next wave can be triggered
+        isWaveActive = false;
+        StartCoroutine(StartWave());
     }
 
     private void Update()
@@ -87,5 +92,13 @@ public class Spawner : MonoBehaviour
     private void EnemyDestroyed()
     {
         enemiesAlive--;
+    }
+
+    private void UpdateWaveCounter()
+    {
+        if (waveCounterText != null)
+        {
+            waveCounterText.text = "Wave: " + currentWave;
+        }
     }
 }

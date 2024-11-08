@@ -84,7 +84,7 @@ MonoBehaviour:
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 0
-    m_Scale: 5.22
+    m_Scale: 1.8
     m_Name: HealthNew
     m_HashCode: 430913376
   m_SpriteGlyphTable:

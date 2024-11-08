@@ -21,6 +21,8 @@ public class Spawner : MonoBehaviour
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
     private int currentWave = 1;
+    private int maxWaves = 20;
+
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
@@ -44,6 +46,13 @@ public class Spawner : MonoBehaviour
     private IEnumerator StartWave()
     {
         yield return new WaitForSeconds(timeBetweenWaves);
+
+        if(currentWave > maxWaves)
+        {
+            EndGame();
+            yield break;
+        }
+
         isSpawning = true;
         isWaveActive = true;
         enemiesLeftToSpawn = EnemiesPerWave();
@@ -80,6 +89,12 @@ public class Spawner : MonoBehaviour
 
     private int EnemiesPerWave()
     {
+        if (currentWave % 5 == 0)
+        {
+            Debug.Log("SUGAR RUSH!");
+            return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScaling) * 1.5f);
+        }
+
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScaling));
     }
 
@@ -100,5 +115,10 @@ public class Spawner : MonoBehaviour
         {
             waveCounterText.text = "Wave: " + currentWave;
         }
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("Game Over! You defeated the sweet treat army!");
     }
 }

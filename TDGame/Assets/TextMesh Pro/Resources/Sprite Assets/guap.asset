@@ -84,7 +84,7 @@ MonoBehaviour:
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 0
-    m_Scale: 1
+    m_Scale: 1.15
     m_Name: guap
     m_HashCode: 3675395
   m_SpriteGlyphTable:

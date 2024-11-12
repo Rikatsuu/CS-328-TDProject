@@ -22,18 +22,9 @@ public class Health : MonoBehaviour
         }
     }
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void enemyDamage(Enemy enemy)
     {
-        
+        TakeDamage(enemy.damage);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

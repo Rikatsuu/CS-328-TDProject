@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float difficultyScaling = 0.75f;
+    [SerializeField] private float enemiesPerSecondCap = 15f;
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
@@ -26,6 +27,7 @@ public class Spawner : MonoBehaviour
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
+    private float eps; //enemies per second
     private bool isSpawning = false;
     private bool isWaveActive = false;
 
@@ -56,6 +58,7 @@ public class Spawner : MonoBehaviour
         isSpawning = true;
         isWaveActive = true;
         enemiesLeftToSpawn = EnemiesPerWave();
+        eps = EnemiesPerSecond();
         UpdateWaveCounter();  // Update wave counter at the start of each wave
     }
 
@@ -98,9 +101,27 @@ public class Spawner : MonoBehaviour
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScaling));
     }
 
+    private float EnemiesPerSecond()
+    {
+        return Mathf.Clamp(eps * Mathf.Pow(currentWave, difficultyScaling), 0f, enemiesPerSecondCap);
+
+    }
+
     private void spawnEnemy()
     {
-        GameObject prefabToSpawn = enemyPrefabs[0];
+        //int index = Random.Range(0, enemyPrefabs.Length);
+        //GameObject prefabToSpawn = enemyPrefabs[index];
+        GameObject prefabToSpawn;
+        if(currentWave < 5)
+        {
+            prefabToSpawn = enemyPrefabs[0];
+        }
+        else
+        {
+            int index = Random.Range(0, enemyPrefabs.Length);
+            prefabToSpawn = enemyPrefabs[index];
+        }
+
         Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity);
     }
 

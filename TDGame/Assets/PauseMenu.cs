@@ -14,6 +14,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] float tweenDuration;
     [SerializeField] CanvasGroup canvasGroup;
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+        Debug.Log("Scale set to" + Time.timeScale);
+    }
+
     public void Pause()
     {
         pausePanelIn();
@@ -26,6 +32,12 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Main menu");
         Time.timeScale = 1;
 
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
     
     public async void Resume()

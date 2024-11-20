@@ -23,13 +23,27 @@ public class Turret : MonoBehaviour
     private float timeUnitlFire;
     public bool isPlaced = false;
 
+    public bool isStunned = false;
+    private float stunTimer = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
         isPlaced = false;
     }
 
-    private void Update(){
+    private void Update()
+    {
+        if (isStunned)
+        {
+            stunTimer -= Time.deltaTime;
+            if(stunTimer <= 0f)
+            {
+                isStunned = false;
+            }
+            return;
+        }
+
         if (isPlaced)
         {
             if(target == null){
@@ -89,7 +103,13 @@ public class Turret : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         Bullet bulletScript =  bullet.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
+    }
 
+    public void Stun(float duration)
+    {
+        isStunned = true;
+        stunTimer = duration;
 
     }
+
 }

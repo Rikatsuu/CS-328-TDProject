@@ -17,7 +17,6 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-        Debug.Log("Scale set to" + Time.timeScale);
     }
 
     public void Pause()

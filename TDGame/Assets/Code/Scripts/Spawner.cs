@@ -57,8 +57,17 @@ public class Spawner : MonoBehaviour
 
         isSpawning = true;
         isWaveActive = true;
-        enemiesLeftToSpawn = EnemiesPerWave();
-        eps = EnemiesPerSecond();
+
+        if(currentWave == 1 || currentWave == 20)
+        {
+            enemiesLeftToSpawn = 1; //ensures that only one boss spawns during these waves
+        }
+        else
+        {
+            enemiesLeftToSpawn = EnemiesPerWave();
+            eps = EnemiesPerSecond();
+        }
+
         UpdateWaveCounter();  // Update wave counter at the start of each wave
     }
 
@@ -109,18 +118,25 @@ public class Spawner : MonoBehaviour
 
     private void spawnEnemy()
     {
-        //int index = Random.Range(0, enemyPrefabs.Length);
-        //GameObject prefabToSpawn = enemyPrefabs[index];
         GameObject prefabToSpawn;
-        if(currentWave < 5)
+
+        if(currentWave == 1 || currentWave == 20)
         {
-            prefabToSpawn = enemyPrefabs[0];
+            prefabToSpawn = enemyPrefabs[5]; //boss prefab
         }
         else
         {
-            int index = Random.Range(0, enemyPrefabs.Length);
-            prefabToSpawn = enemyPrefabs[index];
+            if(currentWave < 5)
+            {
+                prefabToSpawn = enemyPrefabs[0];
+            }
+            else
+            {
+                int index = Random.Range(0, enemyPrefabs.Length);
+                prefabToSpawn = enemyPrefabs[index];
+            }
         }
+
 
         Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity);
     }

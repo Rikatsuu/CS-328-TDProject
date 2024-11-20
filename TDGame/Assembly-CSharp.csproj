@@ -60,6 +60,7 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.47f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Code/Scripts/Boss.cs" />
     <Compile Include="Assets/Code/Scripts/Enemy.cs" />
     <Compile Include="Assets/Code/Scripts/Spawner.cs" />
     <Compile Include="Assets/Code/Scripts/Level1.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets/Code/Scripts/Tower.cs" />
     <Compile Include="Assets/Code/Scripts/Turret.cs" />
     <Compile Include="Assets/Code/Scripts/DragAndDrop.cs" />
+    <Compile Include="Assets/Code/Scripts/King Cake.cs" />
     <Compile Include="Assets/PauseMenu.cs" />
     <Compile Include="Assets/Code/Scripts/Health.cs" />
     <Compile Include="Assets/Code/Scripts/Plot.cs" />

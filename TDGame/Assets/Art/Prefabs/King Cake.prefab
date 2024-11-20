@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1749667981866892643}
   - component: {fileID: 2993936106124849998}
   - component: {fileID: -8446667744952858602}
-  - component: {fileID: -2255625015129950852}
+  - component: {fileID: -1828562772348000965}
+  - component: {fileID: 103130843389189001}
   m_Layer: 6
   m_Name: King Cake
   m_TagString: Enemy
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 5c0338689b06d4a578f584dc0533968b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58546248a74bf304bafba8c83bb47098, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   currencyWorth: 200
---- !u!114 &-2255625015129950852
+--- !u!114 &-1828562772348000965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,11 +189,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1875603748036350326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38922772af16945919ba8bb10f2c74c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 0338306986b0744a5af490bf672f23c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
-  layers: 2
-  speed: 1
-  scaleReduction: 0.8
-  speedIncrease: 1.5
+  phaseSprites:
+  - {fileID: 21300000, guid: 5c0338689b06d4a578f584dc0533968b, type: 3}
+  - {fileID: 21300000, guid: b4d045591a206414da2da11067f0be20, type: 3}
+  phaseSpeeds:
+  - 3
+  - 5
+  phaseScales:
+  - {x: 0.2, y: 0.2, z: 1}
+  - {x: 0.2, y: 0.2, z: 1}
+--- !u!114 &103130843389189001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875603748036350326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8f9e0251a234c30a3ad938fb242590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

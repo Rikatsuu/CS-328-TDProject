@@ -58,7 +58,7 @@ public class Spawner : MonoBehaviour
         isSpawning = true;
         isWaveActive = true;
 
-        if(currentWave == 1 || currentWave == 20)
+        if(currentWave == 10 || currentWave == 20)
         {
             enemiesLeftToSpawn = 1; //ensures that only one boss spawns during these waves
         }
@@ -120,7 +120,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject prefabToSpawn;
 
-        if(currentWave == 1 || currentWave == 20)
+        if(currentWave == 10 || currentWave == 20)
         {
             prefabToSpawn = enemyPrefabs[5]; //boss prefab
         }

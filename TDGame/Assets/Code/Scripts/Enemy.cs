@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Attributes")]
-    public float damage = 1f;
+    [SerializeField] public float damage = 1f;
 }

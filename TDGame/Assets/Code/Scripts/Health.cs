@@ -27,4 +27,9 @@ public class Health : MonoBehaviour
         TakeDamage(enemy.damage);
     }
 
+    public float currentHealth
+    {
+        get { return hp; }
+    }
+
 }

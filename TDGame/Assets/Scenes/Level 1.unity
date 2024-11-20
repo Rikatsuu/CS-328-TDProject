@@ -13277,7 +13277,7 @@ MonoBehaviour:
   - {fileID: 795496595}
   - {fileID: 895999423}
   - {fileID: 1295367164}
-  currency: 500
+  currency: 10000
   health: 10
   currencyText: {fileID: 1154624590}
   healthText: {fileID: 2077214583}

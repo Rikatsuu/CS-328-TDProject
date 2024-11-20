@@ -33,11 +33,16 @@ public class Movement : MonoBehaviour
             target = Level1.main.path[pathIndex];
         }
     }
-    private void FixedUpdate ()
+    private void FixedUpdate()
     {
         Vector2 direction = (target.position - transform.position).normalized;
 
         rb.velocity = direction * movementSpeed;
+    }
+
+    public void updateSpeed(float newSpeed)
+    {
+        movementSpeed = newSpeed;
     }
 
 }

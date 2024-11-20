@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-   
-
     [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private float bulletDamage = .25f;
@@ -14,16 +11,7 @@ public class Bullet : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
 
-
     private Transform target;
-    private int bulletDuration; //THIS SHIT
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -41,7 +29,6 @@ public class Bullet : MonoBehaviour
     {
         collision.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
         Destroy(gameObject);
-        //Add something that will delete missed bullets after some time so memory can be freed
     }
 
     public void SetTarget(Transform _target)

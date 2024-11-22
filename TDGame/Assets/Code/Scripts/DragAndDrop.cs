@@ -1,3 +1,5 @@
+//controls the drag and drop mechanics from the shop to the plot
+
 using Unity.Services.Analytics.Internal;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -20,13 +22,13 @@ public class DragAndDrop : MonoBehaviour
         towerScript.isPlaced = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if(spriteRenderer != null)
+        if (spriteRenderer != null) //determines if the placement is valid
         {
             spriteRenderer.color = invalidPlacement;
         }
     }
 
-    void OnMouseDown()
+    void OnMouseDown() //click
     {
         isDragging = true;
         offset = gameObject.transform.position - GetMouseWorldPosition();
@@ -43,7 +45,7 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    void OnMouseUp() //click release
     {
         isDragging = false;
         towerScript.isPlaced = true;
@@ -54,19 +56,19 @@ public class DragAndDrop : MonoBehaviour
             Vector3 snappedPosition = SnapToBlock(mousePosition);
             GameObject placedTower = Instantiate(towerPrefab, snappedPosition, Quaternion.identity);
 
-            // Get the Tower script from the instantiated object and activate it
+            //Get the Tower script from the instantiated object and activate it
             Tower tower = placedTower.GetComponent<Tower>();
             if (tower != null)
             {
                 tower.ActivateTower();
             }
 
-            // Destroy the dragged sprite since the tower is now placed
+            //destroy the dragged sprite since the tower is now placed
             Destroy(gameObject);
         }
         else
         {
-            Destroy(gameObject);  // or reset to initial position, if required
+            Destroy(gameObject);  //or reset to initial position, if required such as invalid placement
         }
     }
 
@@ -76,10 +78,10 @@ public class DragAndDrop : MonoBehaviour
     {
         if (isDragging)
         {
-            // Follow the mouse position while dragging
+            //follow the mouse position while dragging
             transform.position = GetMouseWorldPosition() + offset;
         }
-        if (IsValidPlacement(transform.position))
+        if (IsValidPlacement(transform.position)) //valid placement logic
         {
             spriteRenderer.color = validPlacement;
         }
@@ -98,9 +100,9 @@ public class DragAndDrop : MonoBehaviour
 
     private bool IsValidPlacement(Vector3 position)
     {
-        // Example of checking for a valid placement, e.g., using a raycast or collision detection
+        //checking for a valid placement, using a raycast or collision detection
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero);
-        if (hit.collider != null && hit.collider.CompareTag("Plot"))  // Assuming your valid blocks are tagged "Plot"
+        if (hit.collider != null && hit.collider.CompareTag("Plot"))
         {
             return true;
         }
@@ -110,14 +112,13 @@ public class DragAndDrop : MonoBehaviour
 
     private Vector3 SnapToBlock(Vector3 position)
     {
-        // Define the size of your grid (adjust this to your grid size)
-        float gridSize = 1f;  // Example: 1 unit per grid cell
+        float gridSize = 1f;
 
-        // Calculate the snapped position by rounding to the nearest grid size
+        //Calculate the snapped position by rounding to the nearest grid size
         float snappedX = Mathf.Round(position.x / gridSize) * gridSize;
         float snappedY = Mathf.Round(position.y / gridSize) * gridSize;
 
-        // Return the snapped position (center of the grid)
-        return new Vector3(snappedX, snappedY, position.z);  // Z remains the same
+        //Return the snapped position (center of the grid)
+        return new Vector3(snappedX, snappedY, position.z);
     }
 }

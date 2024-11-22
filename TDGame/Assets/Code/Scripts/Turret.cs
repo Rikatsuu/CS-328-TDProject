@@ -20,7 +20,7 @@ public class Turret : MonoBehaviour
     public int towerCost = 175;
 
     private Transform target;
-    private float timeUnitlFire;
+    private float timeUntilFire;
     public bool isPlaced = false;
     
     public bool isStunned = false;
@@ -35,9 +35,9 @@ public class Turret : MonoBehaviour
     private void Update()
     {
 
-        if (!isStunned)
+        if (!isStunned) //executes if the tower is not in a stunned state
         {
-            if (isPlaced)
+            if (isPlaced) //ensures that tower only activates when it is properly placed 
             {
                 if (target == null)
                 {
@@ -53,11 +53,11 @@ public class Turret : MonoBehaviour
                 }
                 else
                 {
-                    timeUnitlFire += Time.deltaTime;
-                    if (timeUnitlFire >= 2f / bulletsPerSecond)
+                    timeUntilFire += Time.deltaTime;
+                    if (timeUntilFire >= 2f / bulletsPerSecond)
                     {
                         bulletFire();
-                        timeUnitlFire = 0f;
+                        timeUntilFire = 0f;
                     }
                 }
             }
@@ -80,6 +80,7 @@ public class Turret : MonoBehaviour
         }
     }
 
+    //allowers turret to visually turn towards target, so the bullets dont just spawn where it doesnt make sense
     private void RotateTowardsTarget()
     {
         float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 125f;
@@ -99,6 +100,7 @@ public class Turret : MonoBehaviour
         bulletScript.SetTarget(target);
     }
 
+    //adding a stunned state for the boss functionality
     public void Stun(float stunDuration)
     {
         if (!isStunned)
@@ -113,36 +115,5 @@ public class Turret : MonoBehaviour
         yield return new WaitForSeconds(stunDuration);
         isStunned = false;
     }
-
-    // --------------------------------------------------------------
-
-    //public void stunTower()
-    //{
-    //    isPlaced = false;
-    //    target = null;
-    //    timeUnitlFire = 0f;
-    //}
-
-    //public void unStunTower()
-    //{
-    //    isPlaced = true;
-    //}
-
-    //public void Stun(float stunDuration)
-    //{
-    //    if (!isStunned)
-    //    {
-    //        isStunned = true;
-    //        stunTower();
-    //        StartCoroutine(stunState(stunDuration));
-    //    }
-    //}
-
-    //private IEnumerator stunState(float stunDuration)
-    //{
-    //    yield return new WaitForSeconds(stunDuration);
-    //    isStunned = false;
-    //    unStunTower();
-    //}
 
 }

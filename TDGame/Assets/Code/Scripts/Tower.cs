@@ -1,3 +1,5 @@
+//Tower.cs - class for dealing with tower behavior relate to shop
+
 using UnityEngine;
 using System;
 
@@ -10,37 +12,36 @@ public class Tower : MonoBehaviour
     public GameObject prefab;
     public bool isPlaced = false;
 
-    // Constructor for initializing a new tower
-    public Tower(string _name, int _cost, GameObject _prefab)
+    //constructor for initializing a new tower
+    public Tower(string _name, int _cost, GameObject _prefab) 
     {
         name = _name;
         cost = _cost;
         prefab = _prefab;
     }
 
-    // Method to activate the tower after it is placed
+    //function to activate the tower after it is placed
     public void ActivateTower()
     {
         isPlaced = true;
 
-        // Find and activate relevant components like shooting
-        Turret turretScript = this.gameObject.GetComponent<Turret>();  // Access current object, not prefab
+        //activates shooting 
+        Turret turretScript = this.gameObject.GetComponent<Turret>();
         if (turretScript != null)
         {
-            turretScript.isPlaced = true;  // Activate the turret functionality
+            turretScript.isPlaced = true; 
         }
     }
 
-    // Method to deactivate the tower (e.g., during dragging)
+    //function to deactivate tower 
     public void DeactivateTower()
     {
         isPlaced = false;
 
-        // Find and deactivate relevant components like shooting
-        Turret turretScript = this.gameObject.GetComponent<Turret>();  // Access current object
+        Turret turretScript = this.gameObject.GetComponent<Turret>()
         if (turretScript != null)
         {
-            turretScript.isPlaced = false;  // Deactivate the turret functionality
+            turretScript.isPlaced = false; 
         }
     }
 

@@ -1,3 +1,5 @@
+//Level1.cs - class to handle level 1 attributes
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,10 +18,10 @@ public class Level1 : MonoBehaviour
     public Transform startPoint;
     public Transform[] path;
 
+    //initialize sstarting currency and health
     public int currency = 500;
     public int health = 100;
 
-    // Reference to the TextMeshProUGUI component that displays the currency
     public TextMeshProUGUI currencyText;
     public TextMeshProUGUI healthText;
 
@@ -27,6 +29,7 @@ public class Level1 : MonoBehaviour
     public GameObject lossScreen;
 
     private bool gameStarted = false;
+    
     private void Start()
     {
         UpdateCurrencyText();
@@ -38,6 +41,7 @@ public class Level1 : MonoBehaviour
         main = this;
     }
 
+    //sets an animation for the shop when toggle button is pressed
     public void ToggleShop()
     {
         isShopOpen = !isShopOpen;
@@ -45,14 +49,14 @@ public class Level1 : MonoBehaviour
     }
 
 
-    // Method to increase the player's currency
+    //function to increase currency based on how much enemy is worth
     public void increaseCurrency(int amount)
     {
         currency += amount;
         UpdateCurrencyText();
     }
 
-    // Method to spend currency and check if the player has enough
+    //function to allow player to spend currency 
     public bool spendCurrency(int amount)
     {
         if (amount <= currency)
@@ -68,7 +72,7 @@ public class Level1 : MonoBehaviour
         }
     }
 
-    // Method to update the displayed currency
+    //updates player currency
     private void UpdateCurrencyText()
     {
         if (currencyText != null)
@@ -77,6 +81,7 @@ public class Level1 : MonoBehaviour
         }
     }
 
+    //updates player health
     private void UpdateHealthText()
     {
         if (healthText != null)
@@ -86,6 +91,7 @@ public class Level1 : MonoBehaviour
         }
     }
 
+    //takes health away from player
     public void DeductHealth(int amount)
     {
         health -= amount;
@@ -114,9 +120,9 @@ public class Level1 : MonoBehaviour
         Debug.Log("Game Over!");
         if (lossScreen != null)
         {
-            lossScreen.SetActive(true);  // Show the Loss Screen UI
+            lossScreen.SetActive(true);  //displays loss screen
         }
-        Time.timeScale = 0;  // Pause the game
+        Time.timeScale = 0;  //pause the game
     }
 
     public void RestartGame()

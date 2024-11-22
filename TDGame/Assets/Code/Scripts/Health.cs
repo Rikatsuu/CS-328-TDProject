@@ -1,3 +1,5 @@
+//manages the health of enemies
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +11,8 @@ public class Health : MonoBehaviour
     [SerializeField] private int currencyWorth = 25;
 
     private bool isDestroyed = false;
-    
-    public void TakeDamage(float dmg)
+
+    public void TakeDamage(float dmg) //ememy taking damage and is destroyed; simply subtracts health from hp. 
     {
         hp -= dmg;
 

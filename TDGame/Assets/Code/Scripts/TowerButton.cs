@@ -1,3 +1,5 @@
+//TowerButton.cs - script to handle behavior for tower in the shop.
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,95 +10,92 @@ public class TowerButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Instantiate the tower prefab to drag it from the shop
+        //instantiates the tower prefab to drag it from the shop
         draggedTower = Instantiate(towerPrefab);
         draggedTower.GetComponent<Collider2D>().enabled = false;  // Disable collisions for dragging
 
-        // Get the cost from the specific turret component (e.g., MachineGunMango)
+        //gets the cost of the selected tower
         Turret turretScript = draggedTower.GetComponent<Turret>();
         if (turretScript != null && Level1.main.spendCurrency(turretScript.towerCost))
         {
-            // Allow the drag if there's enough currency
+            //if the player has enough money, allow drag
         }
         else
         {
-            Debug.Log("Not enough currency to place this tower.");
-            Destroy(draggedTower);  // Cancel dragging if no currency
+            Debug.Log("Not enough seeds to place this tower.");
+            Destroy(draggedTower);  //if the player does not have enough money, it won't allow the player to drag and place
             draggedTower = null;
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // If no tower is being dragged, skip dragging logic
         if (draggedTower == null) return;
 
-        // Follow the mouse position while dragging
+        //ensures that the sprite follows the mouse position wherever it goes
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Set z to 0 if it's a 2D game
+        mousePosition.z = 0; //z=0 because we are in 2d
         draggedTower.transform.position = mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // If no tower is being dragged, skip placement logic
         if (draggedTower == null) return;
 
-        // Place it at the current mouse position
+        //places tower at current mouse position when lifted up
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
 
-        // Optionally, check if it's placed on a valid spot
+        //check if the tower is being placed in a valid spot
         if (IsValidPlacement(mousePosition))
         {
-            // Snap the tower to the center of the plot
+            //ensures that the tower snaps to the center wherever it is placed on a valid spot
             mousePosition = SnapToPlotCenter(mousePosition);
             draggedTower.transform.position = mousePosition;
-            draggedTower.GetComponent<Collider2D>().enabled = true;  // Enable collisions again
+            draggedTower.GetComponent<Collider2D>().enabled = true;  //enables tower functionality
 
-            // Activate the Tower (ActivateTower in Tower.cs)
+            //activate tower when all conditions are met
             Tower towerScript = draggedTower.GetComponent<Tower>();
             if (towerScript != null)
             {
-                towerScript.ActivateTower();  // Ensure the tower gets activated after placement
+                towerScript.ActivateTower();  
             }
         }
         else
         {
-            // Destroy the tower if placed in an invalid position and refund the cost
+            //if tower is placed in an invalid spot, it destroys the object and refunds the currency
             Turret turretScript = draggedTower.GetComponent<Turret>();
             if (turretScript != null)
             {
-                Level1.main.increaseCurrency(turretScript.towerCost);  // Refund the currency if placement was invalid
+                Level1.main.increaseCurrency(turretScript.towerCost);  //refund currency 
             }
             Destroy(draggedTower);
         }
     }
 
+    //function to check if the tower is in a proper spot
     private bool IsValidPlacement(Vector3 position)
     {
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero);
 
-        if (hit.collider != null && hit.collider.CompareTag("Plot"))
+        if (hit.collider != null && hit.collider.CompareTag("Plot")) //achieves this by checking if the tag is a plot
         {
             return true;
         }
         return false;
     }
 
+    //function to make the tower snap to the center of the plot
     private Vector3 SnapToPlotCenter(Vector3 position)
     {
-        // Cast a ray to detect the plot
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero);
 
-        // Check if the raycast hit a plot
         if (hit.collider != null && hit.collider.CompareTag("Plot"))
         {
-            // Return the center of the plot (using the plot's collider or transform position)
-            return hit.collider.bounds.center;  // Snaps to the center of the plot's collider
+            return hit.collider.bounds.center;  //snaps to the center of the plot's collider
         }
 
-        // If no valid plot is found, return the original position
+        //if no valid plot is found, return the original position
         return position;
     }
 }

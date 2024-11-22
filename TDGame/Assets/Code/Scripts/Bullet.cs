@@ -1,9 +1,13 @@
+//Bullet.cs - script for managing bullet behavior like speed and damage
+//  this class is specific to machine gun mango for now, will make more modular later
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    //initializing editable attributes for bullet
     [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private float bulletDamage = .25f;
@@ -13,7 +17,6 @@ public class Bullet : MonoBehaviour
 
     private Transform target;
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
         if (!target)
@@ -25,13 +28,15 @@ public class Bullet : MonoBehaviour
         rb.velocity = direction * bulletSpeed;
     }
 
+    //function to handle damage on collision with enemies
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        collision.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
-        Destroy(gameObject);
+        //When bullet collides with another game object, it gets its health and deals damage
+        collision.gameObject.GetComponent<Health>().TakeDamage(bulletDamage); 
+        Destroy(gameObject); //destroys bullet upon collision to free memory and avoid performance issues
     }
 
+    //sets the enemy for bullet to track
     public void SetTarget(Transform _target)
     {
         target = _target;

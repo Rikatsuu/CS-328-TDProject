@@ -1,3 +1,5 @@
+//Spawner.cs - class to handle spawning enemies
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -5,11 +7,11 @@ using TMPro;
 
 public class Spawner : MonoBehaviour
 {
-    public static Spawner main;  // Singleton instance
+    public static Spawner main; 
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private TextMeshProUGUI waveCounterText;  // Reference to the wave counter text
+    [SerializeField] private TextMeshProUGUI waveCounterText;  
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
@@ -68,7 +70,7 @@ public class Spawner : MonoBehaviour
             eps = EnemiesPerSecond();
         }
 
-        UpdateWaveCounter();  // Update wave counter at the start of each wave
+        UpdateWaveCounter();  //updates wave counter at the start of each wave
     }
 
     private void EndWave()
@@ -95,53 +97,54 @@ public class Spawner : MonoBehaviour
 
         if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
         {
-            EndWave();
+            EndWave(); //ends wave, to start next wave 
         }
     }
 
+    //function to handle enemies per wave
     private int EnemiesPerWave()
     {
-        if (currentWave % 5 == 0)
+        if (currentWave % 5 == 0) //every 5 waves, a large wave of various enemies will spawn in 
         {
-            Debug.Log("SUGAR RUSH!");
+            Debug.Log("SUGAR RUSH!"); 
             return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScaling) * 1.5f);
         }
 
-        return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScaling));
+        return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScaling)); //each wave has slightly more enemies than the last to increase difficulty
     }
 
     private float EnemiesPerSecond()
     {
         return Mathf.Clamp(eps * Mathf.Pow(currentWave, difficultyScaling), 0f, enemiesPerSecondCap);
-
     }
 
+    //function to spawn enemies
     private void spawnEnemy()
     {
         GameObject prefabToSpawn;
 
-        if(currentWave == 10 || currentWave == 20)
+        if(currentWave == 10 || currentWave == 20) //spawns boss at wave 10 and wave 20
         {
-            prefabToSpawn = enemyPrefabs[5]; //boss prefab
-        }
+            prefabToSpawn = enemyPrefabs[5]; //index for boss prefab
+        }                                    //**maybe make a bossPrefabs instead to make code more modular 
         else
         {
-            if(currentWave < 5)
+            if(currentWave < 5) //for first 5 waves, spawns only one type of enemy
             {
-                prefabToSpawn = enemyPrefabs[0];
+                prefabToSpawn = enemyPrefabs[0]; //index for devilish donut
             }
             else
             {
-                int index = Random.Range(0, enemyPrefabs.Length - 1);
+                int index = Random.Range(0, enemyPrefabs.Length - 1); //after wave 5 (sugar rush), spawns multiple enemy types -> length - 1 ensures that the boss prefab doesnt spawn
                 prefabToSpawn = enemyPrefabs[index];
             }
         }
 
 
-        Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity);
+        Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity); //instantiates the enemy and spawns it at the start position to follow the path
     }
 
-    private void EnemyDestroyed()
+    private void EnemyDestroyed() //handles event where enemy is destroyed by decrementing enemies alive for wave behavior
     {
         enemiesAlive--;
     }
@@ -150,7 +153,7 @@ public class Spawner : MonoBehaviour
     {
         if (waveCounterText != null)
         {
-            waveCounterText.text = "Wave: " + currentWave;
+            waveCounterText.text = "Wave: " + currentWave; //updates wave counter every wave by adding to a text box
         }
     }
 

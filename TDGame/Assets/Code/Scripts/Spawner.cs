@@ -132,7 +132,7 @@ public class Spawner : MonoBehaviour
             }
             else
             {
-                int index = Random.Range(0, enemyPrefabs.Length);
+                int index = Random.Range(0, enemyPrefabs.Length - 1);
                 prefabToSpawn = enemyPrefabs[index];
             }
         }

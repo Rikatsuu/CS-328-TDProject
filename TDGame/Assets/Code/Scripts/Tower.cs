@@ -43,4 +43,5 @@ public class Tower : MonoBehaviour
             turretScript.isPlaced = false;  // Deactivate the turret functionality
         }
     }
+
 }

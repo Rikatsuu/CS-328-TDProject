@@ -184,9 +184,9 @@ GameObject:
   - component: {fileID: 2203326466120964103}
   - component: {fileID: 4570834113025950634}
   - component: {fileID: 8436106054507330947}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MachineGunMango
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,6 +230,7 @@ MonoBehaviour:
   bulletsPerSecond: 25
   towerCost: 175
   isPlaced: 0
+  isStunned: 0
 --- !u!58 &4570834113025950634
 CircleCollider2D:
   m_ObjectHideFlags: 0

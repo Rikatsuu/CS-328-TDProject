@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         hp -= dmg;
+
         if (hp <= 0 && !isDestroyed)
         {
             Spawner.onEnemyDestroy.Invoke();
@@ -31,5 +32,4 @@ public class Health : MonoBehaviour
     {
         get { return hp; }
     }
-
 }

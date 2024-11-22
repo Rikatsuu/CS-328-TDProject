@@ -22,49 +22,54 @@ public class Turret : MonoBehaviour
     private Transform target;
     private float timeUnitlFire;
     public bool isPlaced = false;
+    
+    public bool isStunned = false;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         isPlaced = false;
+        
     }
 
     private void Update()
     {
- 
-        if (isPlaced)
+
+        if (!isStunned)
         {
-            if(target == null){
-                findTarget();
-                return;
-            }
-
-            RotateTowardsTarget();
-
-            if (!CheckTargetIsInRange())
+            if (isPlaced)
             {
-                target = null;
-            }
-            else
-            {
-                timeUnitlFire += Time.deltaTime;
-                if (timeUnitlFire >= 2f / bulletsPerSecond)
+                if (target == null)
                 {
-                    bulletFire();
-                    timeUnitlFire = 0f;
+                    findTarget();
+                    return;
+                }
+
+                RotateTowardsTarget();
+
+                if (!CheckTargetIsInRange())
+                {
+                    target = null;
+                }
+                else
+                {
+                    timeUnitlFire += Time.deltaTime;
+                    if (timeUnitlFire >= 2f / bulletsPerSecond)
+                    {
+                        bulletFire();
+                        timeUnitlFire = 0f;
+                    }
                 }
             }
         }
-        
     }
 
-    private void OnDrawGizmosSelected(){
+    //private void OnDrawGizmosSelected(){
         
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetRange); 
+    //    Handles.color = Color.cyan;
+    //    Handles.DrawWireDisc(transform.position, transform.forward, targetRange); 
     
-    }
+    //}
 
     private void findTarget()
     {
@@ -93,5 +98,51 @@ public class Turret : MonoBehaviour
         Bullet bulletScript =  bullet.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
     }
+
+    public void Stun(float stunDuration)
+    {
+        if (!isStunned)
+        {
+            isStunned = true;
+            StartCoroutine(stunState(stunDuration));
+        }
+    }
+
+    private IEnumerator stunState(float stunDuration)
+    {
+        yield return new WaitForSeconds(stunDuration);
+        isStunned = false;
+    }
+
+    // --------------------------------------------------------------
+
+    //public void stunTower()
+    //{
+    //    isPlaced = false;
+    //    target = null;
+    //    timeUnitlFire = 0f;
+    //}
+
+    //public void unStunTower()
+    //{
+    //    isPlaced = true;
+    //}
+
+    //public void Stun(float stunDuration)
+    //{
+    //    if (!isStunned)
+    //    {
+    //        isStunned = true;
+    //        stunTower();
+    //        StartCoroutine(stunState(stunDuration));
+    //    }
+    //}
+
+    //private IEnumerator stunState(float stunDuration)
+    //{
+    //    yield return new WaitForSeconds(stunDuration);
+    //    isStunned = false;
+    //    unStunTower();
+    //}
 
 }

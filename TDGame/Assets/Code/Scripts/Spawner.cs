@@ -11,7 +11,8 @@ public class Spawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private TextMeshProUGUI waveCounterText;  
+    [SerializeField] private GameObject[] bossPrefabs;
+    [SerializeField] private TextMeshProUGUI waveCounterText;
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
@@ -125,17 +126,23 @@ public class Spawner : MonoBehaviour
 
         if(currentWave == 10 || currentWave == 20) //spawns boss at wave 10 and wave 20
         {
-            prefabToSpawn = enemyPrefabs[5]; //index for boss prefab
-        }                                    //**maybe make a bossPrefabs instead to make code more modular 
+            prefabToSpawn = bossPrefabs[0];
+
+        }                                    
         else
         {
             if(currentWave < 5) //for first 5 waves, spawns only one type of enemy
             {
-                prefabToSpawn = enemyPrefabs[0]; //index for devilish donut
+                prefabToSpawn = enemyPrefabs[4]; //index for devilish donut
+            }
+            else if (currentWave >= 5 && currentWave < 15)
+            {
+                int index = Random.Range(0, enemyPrefabs.Length - 2);
+                prefabToSpawn = enemyPrefabs[index];
             }
             else
             {
-                int index = Random.Range(0, enemyPrefabs.Length - 1); //after wave 5 (sugar rush), spawns multiple enemy types -> length - 1 ensures that the boss prefab doesnt spawn
+                int index = Random.Range(0, enemyPrefabs.Length); //after wave 5 (sugar rush), spawns multiple enemy types -> length - 1 ensures that the boss prefab doesnt spawn
                 prefabToSpawn = enemyPrefabs[index];
             }
         }
@@ -143,6 +150,21 @@ public class Spawner : MonoBehaviour
 
         Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity); //instantiates the enemy and spawns it at the start position to follow the path
     }
+
+    private GameObject findEnemy(string name)
+    {
+        foreach(GameObject prefab in enemyPrefabs)
+        {
+            if(prefab.name == name)
+            {
+                return prefab;
+            }
+        }
+
+        Debug.LogError($"Enemy ({name}) not found");
+        return null;
+    }
+
 
     private void EnemyDestroyed() //handles event where enemy is destroyed by decrementing enemies alive for wave behavior
     {

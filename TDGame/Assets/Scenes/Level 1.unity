@@ -637,6 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs: []
+  bossPrefabs: []
   waveCounterText: {fileID: 366493781}
   baseEnemies: 8
   enemiesPerSecond: 0.5
@@ -3978,7 +3979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &626674779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13316,7 +13317,9 @@ MonoBehaviour:
   - {fileID: 1875603748036350326, guid: dd9f940d6830c8d49a88fbf54514da22, type: 3}
   - {fileID: 1875603748036350326, guid: dd9f940d6830c8d49a88fbf54514da22, type: 3}
   - {fileID: 1875603748036350326, guid: 0a59a6f6902544bcbaa499baf53edc88, type: 3}
-  - {fileID: 1875603748036350326, guid: a4bc0709495b14259ac71fe0830a4828, type: 3}
+  - {fileID: 1875603748036350326, guid: 9e0d22997be124703879512fef0af215, type: 3}
+  - {fileID: 1875603748036350326, guid: 9e0d22997be124703879512fef0af215, type: 3}
+  bossPrefabs: []
   waveCounterText: {fileID: 366493781}
   baseEnemies: 8
   enemiesPerSecond: 3

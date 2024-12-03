@@ -19,6 +19,9 @@ public class Turret : MonoBehaviour
     [Header("Tower Attributes")]
     public int towerCost = 175;
 
+    [Header("Detection")]
+    [SerializeField] private bool camoDetection = false;
+
     private Transform target;
     private float timeUntilFire;
     public bool isPlaced = false;
@@ -75,9 +78,20 @@ public class Turret : MonoBehaviour
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetRange, (Vector2)transform.position, 0f, enemyMask);
 
-        if (hits.Length > 0) {
-            target = hits[0].transform;
+
+        foreach(var hit in hits)
+        {
+            GameObject enemy = hit.transform.gameObject;
+            if(enemy.CompareTag("Camo") && !camoDetection)
+            {
+                continue;
+            }
+            target = enemy.transform;
+            break;
         }
+        //if (hits.Length > 0) {
+        //    target = hits[0].transform;
+        //}
     }
 
     //allowers turret to visually turn towards target, so the bullets dont just spawn where it doesnt make sense

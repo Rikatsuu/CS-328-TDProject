@@ -229,6 +229,7 @@ MonoBehaviour:
   rotationSpeed: 3000
   bulletsPerSecond: 25
   towerCost: 175
+  camoDetection: 1
   isPlaced: 0
   isStunned: 0
 --- !u!58 &4570834113025950634

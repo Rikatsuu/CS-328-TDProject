@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8446667744952858602}
   m_Layer: 6
   m_Name: Cupcake Commando
-  m_TagString: Enemy
+  m_TagString: Camo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1109114513164563255}
-  movementSpeed: 5
+  movementSpeed: 6.5
 --- !u!114 &-8446667744952858602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,5 +176,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b275c14119fbde46b8f26c80ecb6050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
-  currencyWorth: 10
+  hp: 3
+  currencyWorth: 15

@@ -38,7 +38,7 @@ public class Tower : MonoBehaviour
     {
         isPlaced = false;
 
-        Turret turretScript = this.gameObject.GetComponent<Turret>()
+        Turret turretScript = this.gameObject.GetComponent<Turret>();
         if (turretScript != null)
         {
             turretScript.isPlaced = false; 

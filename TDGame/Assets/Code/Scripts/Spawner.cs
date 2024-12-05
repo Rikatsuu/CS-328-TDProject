@@ -133,16 +133,16 @@ public class Spawner : MonoBehaviour
         {
             if(currentWave < 5) //for first 5 waves, spawns only one type of enemy
             {
-                prefabToSpawn = enemyPrefabs[4]; //index for devilish donut
+                prefabToSpawn = enemyPrefabs[5]; //index for devilish donut
             }
             else if (currentWave >= 5 && currentWave < 15)
             {
-                int index = Random.Range(0, enemyPrefabs.Length - 2);
+                int index = Random.Range(0, enemyPrefabs.Length - 2); //Adds Muscle Milk to Spawner
                 prefabToSpawn = enemyPrefabs[index];
             }
             else
             {
-                int index = Random.Range(0, enemyPrefabs.Length); //after wave 5 (sugar rush), spawns multiple enemy types -> length - 1 ensures that the boss prefab doesnt spawn
+                int index = Random.Range(0, enemyPrefabs.Length); //Adds Cupcake Commando to Spawner
                 prefabToSpawn = enemyPrefabs[index];
             }
         }

@@ -133,7 +133,7 @@ public class Spawner : MonoBehaviour
         {
             if(currentWave < 5) //for first 5 waves, spawns only one type of enemy
             {
-                prefabToSpawn = enemyPrefabs[5]; //index for devilish donut
+                prefabToSpawn = enemyPrefabs[0]; //index for devilish donut
             }
             else if (currentWave >= 5 && currentWave < 15)
             {

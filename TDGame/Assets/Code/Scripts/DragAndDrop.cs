@@ -57,10 +57,23 @@ public class DragAndDrop : MonoBehaviour
             GameObject placedTower = Instantiate(towerPrefab, snappedPosition, Quaternion.identity);
 
             //Get the Tower script from the instantiated object and activate it
-            Tower tower = placedTower.GetComponent<Tower>();
-            if (tower != null)
+
+            RaycastHit2D hit = Physics2D.Raycast(snappedPosition, Vector2.zero);
+            if (hit.collider != null && hit.collider.CompareTag("Plot"))
             {
-                tower.ActivateTower();
+                Plot plot = hit.collider.GetComponent<Plot>();
+                if(plot != null)
+                {
+                    plot.placeTower(placedTower);
+
+                    Tower tower = placedTower.GetComponent<Tower>();
+                    if(tower != null)
+                    {
+                        tower.ActivateTower();
+                    }
+                }
+
+
             }
 
             //destroy the dragged sprite since the tower is now placed
@@ -108,6 +121,7 @@ public class DragAndDrop : MonoBehaviour
         }
 
         return false;
+
     }
 
     private Vector3 SnapToBlock(Vector3 position)

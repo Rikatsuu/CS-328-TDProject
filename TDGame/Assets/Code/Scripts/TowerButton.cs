@@ -5,13 +5,13 @@ using UnityEngine.EventSystems;
 
 public class TowerButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    
     public GameObject towerPrefab;
     private GameObject draggedTower;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //instantiates the tower prefab to drag it from the shop
-        draggedTower = Instantiate(towerPrefab);
+        draggedTower = Instantiate(towerPrefab);               //instantiates the tower prefab to drag it from the shop
         draggedTower.GetComponent<Collider2D>().enabled = false;  // Disable collisions for dragging
 
         //gets the cost of the selected tower

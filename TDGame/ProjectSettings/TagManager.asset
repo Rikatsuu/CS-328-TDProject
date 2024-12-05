@@ -52,3 +52,6 @@ TagManager:
   - name: Turrets
     uniqueID: 3918286023
     locked: 0
+  - name: Canvas
+    uniqueID: 3336936897
+    locked: 0

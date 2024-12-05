@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEditor;
 
 public class Turret : MonoBehaviour
@@ -10,6 +11,9 @@ public class Turret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
+    [SerializeField] private float offset = 125f;
+    [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private Button upgradeButton;
 
     [Header("Attribute")]
     [SerializeField] private float targetRange = 5f;
@@ -67,12 +71,13 @@ public class Turret : MonoBehaviour
         }
     }
 
-    //private void OnDrawGizmosSelected(){
-        
-    //    Handles.color = Color.cyan;
-    //    Handles.DrawWireDisc(transform.position, transform.forward, targetRange); 
-    
-    //}
+    private void OnDrawGizmosSelected()
+    {
+
+        Handles.color = Color.cyan;
+        Handles.DrawWireDisc(transform.position, transform.forward, targetRange);
+
+    }
 
     private void findTarget()
     {
@@ -89,15 +94,12 @@ public class Turret : MonoBehaviour
             target = enemy.transform;
             break;
         }
-        //if (hits.Length > 0) {
-        //    target = hits[0].transform;
-        //}
     }
 
     //allowers turret to visually turn towards target, so the bullets dont just spawn where it doesnt make sense
     private void RotateTowardsTarget()
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 125f;
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - offset;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         towerRotationPoint.rotation = Quaternion.RotateTowards(towerRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
@@ -128,6 +130,16 @@ public class Turret : MonoBehaviour
     {
         yield return new WaitForSeconds(stunDuration);
         isStunned = false;
+    }
+
+    public void openUpgradeMenu()
+    {
+        upgradeUI.SetActive(true);
+    }
+
+    public void closeUpgradeMenu()
+    {
+        upgradeUI.SetActive(false);
     }
 
 }

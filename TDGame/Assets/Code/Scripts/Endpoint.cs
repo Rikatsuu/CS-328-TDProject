@@ -8,7 +8,7 @@ public class Endpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Camo"))
         {
             //Deduct health from the player
             Level1.main.DeductHealth(damageAmount);

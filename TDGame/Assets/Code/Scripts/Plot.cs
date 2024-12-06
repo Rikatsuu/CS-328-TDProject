@@ -12,6 +12,7 @@ public class Plot : MonoBehaviour
     private GameObject tower;
     private Color startColor;
     public Turret turret;
+    public bool IsOccupied => tower != null;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (tower != null)
+        if (IsOccupied)
         {
             turret.openUpgradeMenu();
             return;
@@ -46,14 +47,6 @@ public class Plot : MonoBehaviour
 
         Level1.main.spendCurrency(towerToBuild.cost);
 
-        //GameObject instantiatedTower = Instantiate(towerToBuild.gameObject, transform.position, Quaternion.identity);
-        //tower = instantiatedTower;
-        //turret = tower.GetComponent<Turret>();
-
-        if (turret != null)
-        {
-            turret.isPlaced = true;
-        }
     }
 
     public void placeTower(GameObject placedTower)
@@ -65,5 +58,7 @@ public class Plot : MonoBehaviour
         {
             turret.isPlaced = true;
         }
+
+        tower.transform.SetParent(transform);
     }
 }

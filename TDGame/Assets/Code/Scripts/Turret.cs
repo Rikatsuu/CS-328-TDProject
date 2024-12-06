@@ -135,6 +135,7 @@ public class Turret : MonoBehaviour
     public void openUpgradeMenu()
     {
         upgradeUI.SetActive(true);
+        Debug.Log("UI Opened");
     }
 
     public void closeUpgradeMenu()
@@ -142,4 +143,20 @@ public class Turret : MonoBehaviour
         upgradeUI.SetActive(false);
     }
 
+    public void UpgradeTower()
+    {
+        bulletsPerSecond += 10f;
+
+        Debug.Log("Tower upgraded!");
+        closeUpgradeMenu();
+    }
+
+    private void OnMouseDown()
+    {
+        if (isPlaced) // Ensure the tower has been placed
+        {
+            openUpgradeMenu(); // Open the upgrade menu when clicked
+            Debug.Log("Tower clicked!");
+        }
+    }
 }

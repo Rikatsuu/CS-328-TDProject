@@ -55,7 +55,7 @@ public class DragAndDrop : MonoBehaviour
         {
             Vector3 snappedPosition = SnapToBlock(mousePosition);
             GameObject placedTower = Instantiate(towerPrefab, snappedPosition, Quaternion.identity);
-
+            Debug.Log($"Tower instantiated at: {snappedPosition}");
             //Get the Tower script from the instantiated object and activate it
 
             RaycastHit2D hit = Physics2D.Raycast(snappedPosition, Vector2.zero);
@@ -64,6 +64,7 @@ public class DragAndDrop : MonoBehaviour
                 Plot plot = hit.collider.GetComponent<Plot>();
                 if(plot != null)
                 {
+                    Debug.Log("Plot identified, placing tower...");
                     plot.placeTower(placedTower);
 
                     Tower tower = placedTower.GetComponent<Tower>();
@@ -111,15 +112,22 @@ public class DragAndDrop : MonoBehaviour
 
     private bool IsValidPlacement(Vector3 position)
     {
-        //checking for a valid placement, using a raycast or collision detection
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero);
-        if (hit.collider != null && hit.collider.CompareTag("Plot"))
+        if (hit.collider != null)
         {
-            return true;
+            if (hit.collider.CompareTag("Plot"))
+            {
+                Plot plot = hit.collider.GetComponent<Plot>();
+                return plot != null && !plot.IsOccupied;
+            }
+
+            if (hit.collider.CompareTag("Tower"))
+            {
+                return false;
+            }
         }
 
         return false;
-
     }
 
     private Vector3 SnapToBlock(Vector3 position)

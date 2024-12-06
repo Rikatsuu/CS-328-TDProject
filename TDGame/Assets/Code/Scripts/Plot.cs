@@ -54,6 +54,8 @@ public class Plot : MonoBehaviour
         tower = placedTower;
         turret = tower.GetComponent<Turret>();
 
+        if (UIManager.main.IsHoveringUI()) return;
+
         if(turret != null)
         {
             turret.isPlaced = true;

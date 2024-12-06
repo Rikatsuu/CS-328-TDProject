@@ -70,13 +70,13 @@ public class Turret : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
+    //private void OnDrawGizmosSelected()
+    //{
 
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetRange);
+    //    Handles.color = Color.cyan;
+    //    Handles.DrawWireDisc(transform.position, transform.forward, targetRange);
 
-    }
+    //}
 
     private void findTarget()
     {
@@ -135,7 +135,6 @@ public class Turret : MonoBehaviour
     public void openUpgradeMenu()
     {
         upgradeUI.SetActive(true);
-        Debug.Log("UI Opened");
     }
 
     public void closeUpgradeMenu()
@@ -146,8 +145,28 @@ public class Turret : MonoBehaviour
     public void UpgradeTower()
     {
         bulletsPerSecond += 10f;
+        Level1.main.spendCurrency(75);
+        closeUpgradeMenu();
+    }
 
-        Debug.Log("Tower upgraded!");
+    public void upgradeSniper()
+    {
+        bulletsPerSecond += 1f;
+        Level1.main.spendCurrency(125);
+        closeUpgradeMenu();
+    }
+
+    public void SellTower()
+    {
+
+        if (Level1.main != null)
+        {
+            int sellPrice = Mathf.FloorToInt(towerCost * 0.5f);
+            Level1.main.increaseCurrency(sellPrice);
+        }
+
+        Destroy(this.gameObject);
+        Debug.Log("Sold");
         closeUpgradeMenu();
     }
 

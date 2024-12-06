@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class TowerButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    
+
     public GameObject towerPrefab;
     private GameObject draggedTower;
 
@@ -58,7 +58,7 @@ public class TowerButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             Tower towerScript = draggedTower.GetComponent<Tower>();
             if (towerScript != null)
             {
-                towerScript.ActivateTower();  
+                towerScript.ActivateTower();
             }
         }
         else

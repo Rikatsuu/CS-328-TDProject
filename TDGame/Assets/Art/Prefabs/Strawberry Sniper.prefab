@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5632632452425171965}
   - component: {fileID: 2876416696137442147}
-  - component: {fileID: 8962909004263887454}
   m_Layer: 0
   m_Name: Strawberry Sprite
   m_TagString: Untagged
@@ -86,87 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &8962909004263887454
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850669642098001695}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.27, y: 0.3}
-  m_SpriteTilingProperty:
-    border: {x: 1.39, y: 0.83, z: 2.22, w: 1.06}
-    pivot: {x: 0.4657869, y: 0.47230372}
-    oldSize: {x: 9.6, y: 9.6}
-    newSize: {x: 12.5, y: 12.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 2.12, y: -2.7}
-      - {x: 2.12, y: -2.3999999}
-      - {x: 2.1, y: -2.3799999}
-      - {x: 2.4199998, y: -1.8}
-      - {x: 2.4199998, y: -1.1999999}
-      - {x: 2.3999999, y: -1.18}
-      - {x: 2.4199998, y: -0.59999996}
-      - {x: 2.4199998, y: 0.29999998}
-      - {x: 2.3999999, y: 0.32}
-      - {x: 2.12, y: 2.1}
-      - {x: 2.1, y: 2.12}
-      - {x: 2.12, y: 2.7}
-      - {x: 2.12, y: 3.3}
-      - {x: 1.8, y: 3.62}
-      - {x: 1.5, y: 3.62}
-      - {x: 1.18, y: 3.3}
-      - {x: 1.18, y: 2.7}
-      - {x: 1.1999999, y: 2.6799998}
-      - {x: 0.95, y: 2.12}
-      - {x: 0.31, y: 2.45}
-      - {x: -0.59999996, y: 2.4199998}
-      - {x: -0.62, y: 2.3999999}
-      - {x: -1.28, y: 2.1299999}
-      - {x: -2.29, y: 1.3299999}
-      - {x: -3.1899998, y: -0.47}
-      - {x: -3.32, y: -0.84}
-      - {x: -3.32, y: -1.42}
-      - {x: -3.05, y: -1.51}
-      - {x: -3.05, y: -2.72}
-      - {x: -2.5, y: -3.55}
-      - {x: -1.39, y: -3.83}
-      - {x: -0.9, y: -3.9199998}
-      - {x: -0.42, y: -3.9199998}
-      - {x: 0.11, y: -3.4399998}
-      - {x: 1.22, y: -3.35}
-      - {x: 1.8499999, y: -3.02}
-  m_UseDelaunayMesh: 0
 --- !u!1 &6088911771722331495
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +139,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4083300861416757856, guid: 696833382e7097c4eb95b11ff43b9072, type: 3}
   firingPoint: {fileID: 7731553606940906076}
   offset: 90
+  upgradeUI: {fileID: 0}
+  upgradeButton: {fileID: 0}
   targetRange: 20
   rotationSpeed: 3000
   bulletsPerSecond: 1
@@ -262,7 +182,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
 --- !u!114 &-880486322103278483
 MonoBehaviour:
   m_ObjectHideFlags: 0

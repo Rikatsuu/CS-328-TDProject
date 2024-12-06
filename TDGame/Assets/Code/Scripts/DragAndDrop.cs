@@ -72,8 +72,6 @@ public class DragAndDrop : MonoBehaviour
                         tower.ActivateTower();
                     }
                 }
-
-
             }
 
             //destroy the dragged sprite since the tower is now placed

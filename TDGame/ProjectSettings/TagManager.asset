@@ -9,6 +9,7 @@ TagManager:
   - Tower
   - Boss
   - Camo
+  - Audio
   layers:
   - Default
   - TransparentFX

@@ -32,7 +32,6 @@ public class Turret : MonoBehaviour
     
     public bool isStunned = false;
 
-
     void Start()
     {
         isPlaced = false;
@@ -114,6 +113,7 @@ public class Turret : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         Bullet bulletScript =  bullet.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
+
     }
 
     //adding a stunned state for the boss functionality

@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float dmg) //ememy taking damage and is destroyed; simply subtracts health from hp. 
     {
         hp -= dmg;
+        //audioManager.SFXPlay(audioManager.PopUp); // Health Loss Effect
         if (hp <= 0 && !isDestroyed)
         {
             Spawner.onEnemyDestroy.Invoke();

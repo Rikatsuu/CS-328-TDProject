@@ -23,6 +23,11 @@ public class Turret : MonoBehaviour
     [Header("Tower Attributes")]
     public int towerCost = 175;
 
+    [Header("Sprites")]
+    [SerializeField] private SpriteRenderer spriteRenderer; 
+    [SerializeField] private Sprite upgradedSprite; 
+
+
     [Header("Detection")]
     [SerializeField] private bool camoDetection = false;
 
@@ -145,7 +150,10 @@ public class Turret : MonoBehaviour
     public void UpgradeTower()
     {
         bulletsPerSecond += 10f;
+
+        spriteRenderer.sprite = upgradedSprite;
         Level1.main.spendCurrency(75);
+
         closeUpgradeMenu();
     }
 

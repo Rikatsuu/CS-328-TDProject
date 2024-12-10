@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phaseSprites:
   - {fileID: 21300000, guid: 5c0338689b06d4a578f584dc0533968b, type: 3}
-  - {fileID: 21300000, guid: b4d045591a206414da2da11067f0be20, type: 3}
+  - {fileID: 21300000, guid: 2a7c9fbb9be584c4d93fcdc0b8767958, type: 3}
   phaseSpeeds:
   - 3
   - 5

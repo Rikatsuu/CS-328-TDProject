@@ -13814,6 +13814,8 @@ MonoBehaviour:
   - {fileID: 1875603748036350326, guid: 0a59a6f6902544bcbaa499baf53edc88, type: 3}
   - {fileID: 1875603748036350326, guid: 9e0d22997be124703879512fef0af215, type: 3}
   - {fileID: 1875603748036350326, guid: 9e0d22997be124703879512fef0af215, type: 3}
+  - {fileID: 1875603748036350326, guid: 207a5aaf21449ed43ae52548090f9776, type: 3}
+  - {fileID: 1875603748036350326, guid: d2b8d7be94577234cbcfa81de333d838, type: 3}
   bossPrefabs:
   - {fileID: 1875603748036350326, guid: a4bc0709495b14259ac71fe0830a4828, type: 3}
   waveCounterText: {fileID: 366493781}

@@ -33,9 +33,12 @@ public class Turret : MonoBehaviour
 
     private Transform target;
     private float timeUntilFire;
-    public bool isPlaced = false;
     
+    public bool isPlaced = false;
     public bool isStunned = false;
+    public bool isSlowed = false;
+
+    private Coroutine slowRoutine;
 
     void Start()
     {
@@ -50,6 +53,7 @@ public class Turret : MonoBehaviour
         {
             if (isPlaced) //ensures that tower only activates when it is properly placed 
             {
+
                 if (target == null)
                 {
                     findTarget();
@@ -71,17 +75,18 @@ public class Turret : MonoBehaviour
                         timeUntilFire = 0f;
                     }
                 }
+   
             }
         }
     }
 
-    //private void OnDrawGizmosSelected()
-    //{
+    private void OnDrawGizmosSelected()
+    {
 
-    //    Handles.color = Color.cyan;
-    //    Handles.DrawWireDisc(transform.position, transform.forward, targetRange);
+        Handles.color = Color.cyan;
+        Handles.DrawWireDisc(transform.position, transform.forward, targetRange);
 
-    //}
+    }
 
     private void findTarget()
     {
@@ -135,6 +140,45 @@ public class Turret : MonoBehaviour
     {
         yield return new WaitForSeconds(stunDuration);
         isStunned = false;
+    }
+
+    //public void slowTurret(float slowFactor, float duration)
+    //{
+    //    if(slowRoutine != null)
+    //    {
+    //        StopCoroutine(slowRoutine);
+    //    }
+    //    slowRoutine = StartCoroutine(ApplySlow(slowFactor, duration));
+    //}
+
+    //private IEnumerator applySlow(float slowFactor, float duration) 
+    //{
+    //    if (!isSlowed)
+    //    {
+    //        isSlowed = true;
+    //        bulletsPerSecond *= slowFactor;
+    //    }
+
+    //    yield return 
+    //}
+
+    public void applySlow(float slowFactor)
+    {
+        if (!isSlowed)
+        {
+            isSlowed = true;
+            bulletsPerSecond *= slowFactor;
+
+        }
+    }
+
+    public void removeSlow(float slowFactor)
+    {
+        if (isSlowed)
+        {
+            isSlowed = false;
+            bulletsPerSecond /= slowFactor;
+        }
     }
 
     public void openUpgradeMenu()

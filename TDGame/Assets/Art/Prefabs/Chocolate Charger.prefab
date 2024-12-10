@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1749667981866892643}
   - component: {fileID: 2993936106124849998}
   - component: {fileID: -8446667744952858602}
-  - component: {fileID: 1181561315944880266}
+  - component: {fileID: 4883056193265843094}
   m_Layer: 6
-  m_Name: Muscle Milk
+  m_Name: Chocolate Charger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.677, y: 3.032, z: 0}
-  m_LocalScale: {x: 0.13, y: 0.13, z: 0.09}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 8291df25cc64bf4499511f5e60ca6ce9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f441e2587c9b15341960af6d6332e74a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.24, y: 10.24}
+  m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1109114513164563255}
-  movementSpeed: 1.4
+  movementSpeed: 5
 --- !u!114 &-8446667744952858602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,9 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b275c14119fbde46b8f26c80ecb6050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
-  currencyWorth: 20
---- !u!114 &1181561315944880266
+  hp: 1
+  currencyWorth: 10
+--- !u!114 &4883056193265843094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,7 +188,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1875603748036350326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c8f9e0251a234c30a3ad938fb242590, type: 3}
+  m_Script: {fileID: 11500000, guid: b27c6511fe881524f818aa1623ca34bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  baseSpeed: 5
+  firstSpeed: 10
+  secondSpeed: 15
+  firstChangeTime: 2
+  secondChangeTime: 4
+  baseSprite: {fileID: 21300000, guid: f441e2587c9b15341960af6d6332e74a, type: 3}
+  firstStage: {fileID: 21300000, guid: 5e0abf25cf0fbb042b418073e56ca33a, type: 3}
+  secondStage: {fileID: 21300000, guid: 9bd2965274357bb4f8976edda64a3619, type: 3}

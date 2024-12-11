@@ -126,6 +126,31 @@ public class Turret : MonoBehaviour
 
     }
 
+    public GameObject getBulletPrefab()
+    {
+        return bulletPrefab;
+    }
+
+    //public void increaseDamage(float damageIncrease)
+    //{
+
+    //}
+
+    //public void decreaseDamage()
+    //{
+
+    //}
+
+    public void increaseRange(float rangeIncrease)
+    {
+        targetRange += rangeIncrease;
+    }
+
+    public void decreaseRange(float rangeIncrease)
+    {
+        targetRange -= rangeIncrease;
+    }
+
     //adding a stunned state for the boss functionality
     public void Stun(float stunDuration)
     {
@@ -141,26 +166,6 @@ public class Turret : MonoBehaviour
         yield return new WaitForSeconds(stunDuration);
         isStunned = false;
     }
-
-    //public void slowTurret(float slowFactor, float duration)
-    //{
-    //    if(slowRoutine != null)
-    //    {
-    //        StopCoroutine(slowRoutine);
-    //    }
-    //    slowRoutine = StartCoroutine(ApplySlow(slowFactor, duration));
-    //}
-
-    //private IEnumerator applySlow(float slowFactor, float duration) 
-    //{
-    //    if (!isSlowed)
-    //    {
-    //        isSlowed = true;
-    //        bulletsPerSecond *= slowFactor;
-    //    }
-
-    //    yield return 
-    //}
 
     public void applySlow(float slowFactor)
     {

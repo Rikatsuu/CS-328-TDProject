@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChocolateCharger : MonoBehaviour
 {
     [Header("Speed Settings")]
-    [SerializeField] private float baseSpeed = 2f;
     [SerializeField] private float firstSpeed = 4f;
     [SerializeField] private float secondSpeed = 8f;
     [SerializeField] private float firstChangeTime = 2f;
@@ -54,12 +53,6 @@ public class ChocolateCharger : MonoBehaviour
             spriteRenderer.sprite = secondStage;
             secondChangeDone = true;
         }
-
-        //float newSpeed = baseSpeed + (elapsedTime * speedIncreaseRate);
-
-        //movementScript.updateSpeed(newSpeed);
     }
-
-
 }
 

@@ -11,11 +11,22 @@ public class Health : MonoBehaviour
     [SerializeField] private int currencyWorth = 25;
 
     private bool isDestroyed = false;
+    private JukingJellybean bean;
 
-    public void TakeDamage(float dmg) //ememy taking damage and is destroyed; simply subtracts health from hp. 
+    private void Start()
     {
+        bean = GetComponent<JukingJellybean>();
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        // Check if the enemy dodges
+        if (bean.TryDodge())
+        {
+            return;
+        }
+
         hp -= dmg;
-        //audioManager.SFXPlay(audioManager.PopUp); // Health Loss Effect
         if (hp <= 0 && !isDestroyed)
         {
             Spawner.onEnemyDestroy.Invoke();
@@ -23,11 +34,6 @@ public class Health : MonoBehaviour
             isDestroyed = true;
             Destroy(gameObject);
         }
-    }
-
-    public void enemyDamage(Enemy enemy)
-    {
-        TakeDamage(enemy.damage);
     }
 
     public float currentHealth

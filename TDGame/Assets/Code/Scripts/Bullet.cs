@@ -41,4 +41,14 @@ public class Bullet : MonoBehaviour
     {
         target = _target;
     }
+
+    public void increaseDamage(float damageIncrease)
+    {
+        bulletDamage += damageIncrease;
+    }
+
+    public void decreaseDamage(float damageIncrease)
+    {
+        bulletDamage -= damageIncrease;
+    }
 }

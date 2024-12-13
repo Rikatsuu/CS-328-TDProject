@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         // Check if the enemy dodges
-        if (bean.TryDodge())
+        if (bean != null && bean.TryDodge())
         {
             return;
         }

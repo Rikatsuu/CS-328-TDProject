@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
         }
         Vector2 direction = (target.position - transform.position).normalized;
 
-        rb.velocity = direction * bulletSpeed;
+        rb.velocity = direction * bulletSpeed * 1.2f;
     }
 
     //function to handle damage on collision with enemies

@@ -131,15 +131,6 @@ public class Turret : MonoBehaviour
         return bulletPrefab;
     }
 
-    //public void increaseDamage(float damageIncrease)
-    //{
-
-    //}
-
-    //public void decreaseDamage()
-    //{
-
-    //}
 
     public void increaseRange(float rangeIncrease)
     {
@@ -209,7 +200,10 @@ public class Turret : MonoBehaviour
     public void upgradeSniper()
     {
         bulletsPerSecond += 1f;
+
+        spriteRenderer.sprite = upgradedSprite;
         Level1.main.spendCurrency(125);
+
         closeUpgradeMenu();
     }
 

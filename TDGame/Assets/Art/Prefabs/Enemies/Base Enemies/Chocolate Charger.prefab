@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1749667981866892643}
   - component: {fileID: 2993936106124849998}
   - component: {fileID: -8446667744952858602}
-  - component: {fileID: -6548303364291998857}
+  - component: {fileID: 4883056193265843094}
   m_Layer: 6
-  m_Name: Juking JellyBean
+  m_Name: Chocolate Charger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: f11ab197a0b05624a9af1ffe4d774845, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f441e2587c9b15341960af6d6332e74a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.24, y: 10.24}
+  m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1109114513164563255}
-  movementSpeed: 3
+  movementSpeed: 5
 --- !u!114 &-8446667744952858602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,9 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b275c14119fbde46b8f26c80ecb6050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
+  hp: 1
   currencyWorth: 10
---- !u!114 &-6548303364291998857
+--- !u!114 &4883056193265843094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,7 +188,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1875603748036350326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2662f854534656d4a8d24fd404f78b22, type: 3}
+  m_Script: {fileID: 11500000, guid: b27c6511fe881524f818aa1623ca34bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodgeChance: 0.8
+  firstSpeed: 8
+  secondSpeed: 13
+  firstChangeTime: 2
+  secondChangeTime: 4
+  baseSprite: {fileID: 21300000, guid: f441e2587c9b15341960af6d6332e74a, type: 3}
+  firstStage: {fileID: 21300000, guid: 5e0abf25cf0fbb042b418073e56ca33a, type: 3}
+  secondStage: {fileID: 21300000, guid: 9bd2965274357bb4f8976edda64a3619, type: 3}

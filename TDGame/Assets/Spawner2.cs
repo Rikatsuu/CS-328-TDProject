@@ -1,4 +1,3 @@
-//Spawner.cs - class to handle spawning enemies
 
 using System.Collections;
 using System.Collections.Generic;
@@ -7,12 +6,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using TMPro;
 
-public class Spawner : MonoBehaviour
+public class Spawner2 : MonoBehaviour
 {
-    public static Spawner main;
+    public static Spawner2 main;
 
     [Header("References")]
-    //[SerializeField] private List<LevelConfig> levelConfigs;
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject[] bossPrefabs;
     [SerializeField] private TextMeshProUGUI waveCounterText;
@@ -27,10 +25,8 @@ public class Spawner : MonoBehaviour
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
-    //private LevelConfig currentLevelConfig;
     private int currentWave = 1;
     private int maxWaves = 20;
-    private int currentLevel = 1;
 
     private float timeSinceLastSpawn;
     private int enemiesAlive;
@@ -39,45 +35,10 @@ public class Spawner : MonoBehaviour
     private bool isSpawning = false;
     private bool isWaveActive = false;
 
-    //[System.Serializable]
-    //public class LevelConfig
-    //{
-    //   // public int level;
-    //    public string sceneName;
-    //    public GameObject[] enemyPrefabs;
-    //    public GameObject[] bossPrefabs;
-    //}
-
-    //public List<LevelConfig> levelConfigs;
-
-    //private void initializeLevelConfig()
-    //{
-    //    string activeSceneName = SceneManager.GetActiveScene().name;
-
-    //    currentLevelConfig = levelConfigs.Find(config => config.sceneName == activeSceneName);
-
-    //    //if(currentLevelConfig == null)
-    //    //{
-    //    //    Debug.LogError("No LevelConfig found for scene");
-    //    //}
-    //}
-
-    //private void Start()
-    //{
-    //    initializeLevelConfig();
-    //    StartWaves();
-    //}
-
     private void Awake()
     {
         main = this;
         onEnemyDestroy.AddListener(EnemyDestroyed);
-    }
-
-    public void setLevel(int level)
-    {
-        currentLevel = level;
-
     }
 
     public void StartWaves()
@@ -92,7 +53,7 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenWaves);
 
-        if(currentWave > maxWaves)
+        if (currentWave > maxWaves)
         {
             EndGame();
             yield break;
@@ -101,7 +62,7 @@ public class Spawner : MonoBehaviour
         isSpawning = true;
         isWaveActive = true;
 
-        if(currentWave == 10 || currentWave == 20)
+        if (currentWave == 10 || currentWave == 20)
         {
             enemiesLeftToSpawn = 1; //ensures that only one boss spawns during these waves
         }
@@ -147,7 +108,7 @@ public class Spawner : MonoBehaviour
     {
         if (currentWave % 5 == 0) //every 5 waves, a large wave of various enemies will spawn in 
         {
-            Debug.Log("SUGAR RUSH!"); 
+            Debug.Log("SUGAR RUSH!");
             return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScaling) * 1.5f);
         }
 
@@ -164,7 +125,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject prefabToSpawn;
 
-        if (currentWave == 10 || currentWave == 20) //spawns boss at wave 10 and wave 20
+        if (currentWave == 10 || currentWave == 20 || currentWave == 30) //spawns boss at wave 10 and wave 20
         {
             prefabToSpawn = bossPrefabs[0];
 
@@ -177,12 +138,17 @@ public class Spawner : MonoBehaviour
             }
             else if (currentWave >= 5 && currentWave < 15)
             {
-                int index = Random.Range(0, enemyPrefabs.Length - 2); //Adds Muscle Milk to Spawner
+                int index = Random.Range(0, enemyPrefabs.Length - 6); //Adds Chocolate Charger to Spawner
+                prefabToSpawn = enemyPrefabs[index];
+            }
+            else if (currentWave >= 20 && currentWave < 15)
+            {
+                int index = Random.Range(0, enemyPrefabs.Length - 3); //Adds Juking JellyBean
                 prefabToSpawn = enemyPrefabs[index];
             }
             else
             {
-                int index = Random.Range(0, enemyPrefabs.Length); //Adds Cupcake Commando to Spawner
+                int index = Random.Range(0, enemyPrefabs.Length); //Adds SlowliPop to Spawner
                 prefabToSpawn = enemyPrefabs[index];
             }
         }
@@ -191,42 +157,19 @@ public class Spawner : MonoBehaviour
         Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity); //instantiates the enemy and spawns it at the start position to follow the path
     }
 
-    //private void spawnEnemy()
-    //{
-    //    //var levelConfig = levelConfigs.Find(config => config.level == currentLevel);
+    private GameObject findEnemy(string name)
+    {
+        foreach (GameObject prefab in enemyPrefabs)
+        {
+            if (prefab.name == name)
+            {
+                return prefab;
+            }
+        }
 
-    //    //if(levelConfig != null)
-    //    //{
-    //    //    Debug.LogError("No level config found");
-    //    //}
-
-    //    GameObject prefabToSpawn;
-
-    //    if(currentWave == 10 || currentWave == 20)
-    //    {
-    //        prefabToSpawn = currentLevelConfig.bossPrefabs[0];
-    //    }
-    //    else
-    //    {
-    //        if(currentWave < 5)
-    //        {
-    //            prefabToSpawn = currentLevelConfig.enemyPrefabs[0];
-    //        }
-    //        else if(currentWave >= 5 && currentWave < 15)
-    //        {
-    //            int index = Random.Range(0, currentLevelConfig.enemyPrefabs.Length - 2);
-    //            prefabToSpawn = currentLevelConfig.enemyPrefabs[index];
-    //        }
-    //        else
-    //        {
-    //            int index = Random.Range(0, currentLevelConfig.enemyPrefabs.Length);
-    //            prefabToSpawn = currentLevelConfig.enemyPrefabs[index];
-    //        }
-    //        //int index = Random.Range(0, currentLevelConfig.enemyPrefabs.Length);
-    //        //prefabToSpawn = currentLevelConfig.enemyPrefabs[index];
-    //    }
-    //    Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity);
-    //}
+        Debug.LogError($"Enemy ({name}) not found");
+        return null;
+    }
 
 
     private void EnemyDestroyed() //handles event where enemy is destroyed by decrementing enemies alive for wave behavior

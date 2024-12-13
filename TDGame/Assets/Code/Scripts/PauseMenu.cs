@@ -14,16 +14,32 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] float tweenDuration;
     [SerializeField] CanvasGroup canvasGroup;
 
+    private bool isPaused = false;
+
     private void Start()
     {
         Time.timeScale = 1;
     }
 
+    public void togglePause()
+    {
+        if (isPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
+        }
+    }
+
     public void Pause()
     {
+        Time.timeScale = 0;
+        isPaused = true;
+
         pausePanelIn();
         pauseMenu.SetActive(true);
-        Time.timeScale = 0;
     }
 
     public void Home()
@@ -44,6 +60,7 @@ public class PauseMenu : MonoBehaviour
         await pausePanelOut();
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        isPaused = false;
     }
 
 

@@ -12,8 +12,9 @@ public class Tower : MonoBehaviour
     public GameObject prefab;
     public bool isPlaced = false;
 
+
     //constructor for initializing a new tower
-    public Tower(string _name, int _cost, GameObject _prefab) 
+    public Tower(string _name, int _cost, GameObject _prefab)
     {
         name = _name;
         cost = _cost;
@@ -29,7 +30,12 @@ public class Tower : MonoBehaviour
         Turret turretScript = this.gameObject.GetComponent<Turret>();
         if (turretScript != null)
         {
-            turretScript.isPlaced = true; 
+            turretScript.isPlaced = true;
+        }
+        GeneralGuava guavaScript = this.gameObject.GetComponent<GeneralGuava>();
+        if (guavaScript != null)
+        {
+            guavaScript.EnableBoost();
         }
     }
 
@@ -41,7 +47,7 @@ public class Tower : MonoBehaviour
         Turret turretScript = this.gameObject.GetComponent<Turret>();
         if (turretScript != null)
         {
-            turretScript.isPlaced = false; 
+            turretScript.isPlaced = false;
         }
     }
 

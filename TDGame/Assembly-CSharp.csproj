@@ -79,6 +79,7 @@
     <Compile Include="Assets\Code\VisualScripts\GraphicsSettings.cs" />
     <Compile Include="Assets\PinataPony.cs" />
     <Compile Include="Assets\Code\Scripts\Enemies\Enemy.cs" />
+    <Compile Include="Assets\GeneralGuava.cs" />
     <Compile Include="Assets\Code\Scripts\Turret.cs" />
     <Compile Include="Assets\Code\Scripts\Enemies\ChocolateCharger.cs" />
     <Compile Include="Assets\Code\Scripts\Enemies\King Cake.cs" />

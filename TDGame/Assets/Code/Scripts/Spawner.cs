@@ -39,34 +39,6 @@ public class Spawner : MonoBehaviour
     private bool isSpawning = false;
     private bool isWaveActive = false;
 
-    //[System.Serializable]
-    //public class LevelConfig
-    //{
-    //   // public int level;
-    //    public string sceneName;
-    //    public GameObject[] enemyPrefabs;
-    //    public GameObject[] bossPrefabs;
-    //}
-
-    //public List<LevelConfig> levelConfigs;
-
-    //private void initializeLevelConfig()
-    //{
-    //    string activeSceneName = SceneManager.GetActiveScene().name;
-
-    //    currentLevelConfig = levelConfigs.Find(config => config.sceneName == activeSceneName);
-
-    //    //if(currentLevelConfig == null)
-    //    //{
-    //    //    Debug.LogError("No LevelConfig found for scene");
-    //    //}
-    //}
-
-    //private void Start()
-    //{
-    //    initializeLevelConfig();
-    //    StartWaves();
-    //}
 
     private void Awake()
     {
@@ -90,6 +62,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator StartWave()
     {
+        Level1.main.increaseCurrency(100);
         yield return new WaitForSeconds(timeBetweenWaves);
 
         if(currentWave > maxWaves)
@@ -173,7 +146,7 @@ public class Spawner : MonoBehaviour
         {
             if (currentWave < 5) //for first 5 waves, spawns only one type of enemy
             {
-                prefabToSpawn = enemyPrefabs[0]; //index for devilish donut
+                prefabToSpawn =  enemyPrefabs[0]; //index for devilish donut
             }
             else if (currentWave >= 5 && currentWave < 15)
             {
@@ -185,53 +158,17 @@ public class Spawner : MonoBehaviour
                 int index = Random.Range(0, enemyPrefabs.Length); //Adds Cupcake Commando to Spawner
                 prefabToSpawn = enemyPrefabs[index];
             }
+
         }
 
 
         Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity); //instantiates the enemy and spawns it at the start position to follow the path
     }
 
-    //private void spawnEnemy()
-    //{
-    //    //var levelConfig = levelConfigs.Find(config => config.level == currentLevel);
-
-    //    //if(levelConfig != null)
-    //    //{
-    //    //    Debug.LogError("No level config found");
-    //    //}
-
-    //    GameObject prefabToSpawn;
-
-    //    if(currentWave == 10 || currentWave == 20)
-    //    {
-    //        prefabToSpawn = currentLevelConfig.bossPrefabs[0];
-    //    }
-    //    else
-    //    {
-    //        if(currentWave < 5)
-    //        {
-    //            prefabToSpawn = currentLevelConfig.enemyPrefabs[0];
-    //        }
-    //        else if(currentWave >= 5 && currentWave < 15)
-    //        {
-    //            int index = Random.Range(0, currentLevelConfig.enemyPrefabs.Length - 2);
-    //            prefabToSpawn = currentLevelConfig.enemyPrefabs[index];
-    //        }
-    //        else
-    //        {
-    //            int index = Random.Range(0, currentLevelConfig.enemyPrefabs.Length);
-    //            prefabToSpawn = currentLevelConfig.enemyPrefabs[index];
-    //        }
-    //        //int index = Random.Range(0, currentLevelConfig.enemyPrefabs.Length);
-    //        //prefabToSpawn = currentLevelConfig.enemyPrefabs[index];
-    //    }
-    //    Instantiate(prefabToSpawn, Level1.main.startPoint.position, Quaternion.identity);
-    //}
-
-
     private void EnemyDestroyed() //handles event where enemy is destroyed by decrementing enemies alive for wave behavior
     {
         enemiesAlive--;
+
     }
 
     private void UpdateWaveCounter()
@@ -244,6 +181,8 @@ public class Spawner : MonoBehaviour
 
     private void EndGame()
     {
+       
         Debug.Log("Game Over! You defeated the sweet treat army!");
     }
+
 }

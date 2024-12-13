@@ -24,8 +24,8 @@ public class Turret : MonoBehaviour
     public int towerCost = 175;
 
     [Header("Sprites")]
-    [SerializeField] private SpriteRenderer spriteRenderer; 
-    [SerializeField] private Sprite upgradedSprite; 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite upgradedSprite;
 
 
     [Header("Detection")]
@@ -33,17 +33,22 @@ public class Turret : MonoBehaviour
 
     private Transform target;
     private float timeUntilFire;
-    
+
     public bool isPlaced = false;
     public bool isStunned = false;
     public bool isSlowed = false;
 
     private Coroutine slowRoutine;
+    private Tower tower;
 
     void Start()
     {
         isPlaced = false;
-        
+        tower = GetComponent<Tower>();
+        if (tower != null)
+        {
+            upgradeUI.SetActive(false);
+        }
     }
 
     private void Update()
@@ -75,28 +80,28 @@ public class Turret : MonoBehaviour
                         timeUntilFire = 0f;
                     }
                 }
-   
+
             }
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
+    //private void OnDrawGizmosSelected()
+    //{
 
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetRange);
+    //    Handles.color = Color.cyan;
+    //    Handles.DrawWireDisc(transform.position, transform.forward, targetRange);
 
-    }
+    //}
 
     private void findTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetRange, (Vector2)transform.position, 0f, enemyMask);
 
 
-        foreach(var hit in hits)
+        foreach (var hit in hits)
         {
             GameObject enemy = hit.transform.gameObject;
-            if(enemy.CompareTag("Camo") && !camoDetection)
+            if (enemy.CompareTag("Camo") && !camoDetection)
             {
                 continue;
             }
@@ -121,7 +126,7 @@ public class Turret : MonoBehaviour
     private void bulletFire()
     {
         GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-        Bullet bulletScript =  bullet.GetComponent<Bullet>();
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
 
     }
@@ -225,8 +230,27 @@ public class Turret : MonoBehaviour
     {
         if (isPlaced) // Ensure the tower has been placed
         {
-            openUpgradeMenu(); // Open the upgrade menu when clicked
-            Debug.Log("Tower clicked!");
+            if (tower != null)
+            {
+                openUpgradeMenu(); // Open the upgrade menu when clicked
+                Debug.Log("Upgrade menu opened!");
+            }
+            else
+            {
+                Debug.Log("Upgrades are disabled for this tower.");
+            }
         }
+    }
+
+    //getters and setters for general guava
+
+    public float GetTargetRange()
+    {
+        return targetRange;
+    }
+
+    public void SetTargetRange(float value)
+    {
+        targetRange = value;
     }
 }

@@ -205,3 +205,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be6344bd9ee2ca4aadf3a6134784444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 1875603748036350326, guid: d2b8d7be94577234cbcfa81de333d838, type: 3}
+  - {fileID: 1875603748036350326, guid: dd9f940d6830c8d49a88fbf54514da22, type: 3}
+  - {fileID: 1875603748036350326, guid: 338c9bb13c6c96449a60345d5c74b1d6, type: 3}
+  - {fileID: 1875603748036350326, guid: 207a5aaf21449ed43ae52548090f9776, type: 3}
+  - {fileID: 1875603748036350326, guid: 9e0d22997be124703879512fef0af215, type: 3}
+  - {fileID: 1875603748036350326, guid: 0a59a6f6902544bcbaa499baf53edc88, type: 3}
+  spawnPoint: {fileID: 5667132995301096829}
+  spawnInterval: 1
+  burstSpawnCount: 10
+  burstSpawnDelay: 0.2

@@ -17,6 +17,12 @@ public class Bullet : MonoBehaviour
 
     private Transform target;
 
+    public float BulletDamage
+    {
+        get => bulletDamage;
+        set => bulletDamage = value;
+    }
+
     private void FixedUpdate()
     {
         if (!target)
@@ -32,7 +38,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //When bullet collides with another game object, it gets its health and deals damage
-        collision.gameObject.GetComponent<Health>().TakeDamage(bulletDamage); 
+        collision.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
         Destroy(gameObject); //destroys bullet upon collision to free memory and avoid performance issues
     }
 

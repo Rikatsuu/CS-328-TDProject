@@ -12,11 +12,15 @@ public class Health : MonoBehaviour
 
     private bool isDestroyed = false;
     private JukingJellybean bean;
+    private PinataPony pinataPony;
 
     private void Start()
     {
         bean = GetComponent<JukingJellybean>();
+        pinataPony = GetComponent<PinataPony>();
     }
+
+ 
 
     public void TakeDamage(float dmg)
     {
@@ -27,6 +31,13 @@ public class Health : MonoBehaviour
         }
 
         hp -= dmg;
+
+        PinataPony pinata = GetComponent<PinataPony>();
+        if(pinata != null)
+        {
+            pinata.onDestroy();
+        }
+
         if (hp <= 0 && !isDestroyed)
         {
             Spawner.onEnemyDestroy.Invoke();
